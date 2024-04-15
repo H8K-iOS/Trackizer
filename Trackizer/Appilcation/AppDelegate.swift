@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Trackizer
-//
-//  Created by Alexandr Alimov on 15/04/24.
-//
-
 import UIKit
 
 @main

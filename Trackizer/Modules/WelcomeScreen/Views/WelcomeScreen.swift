@@ -1,8 +1,27 @@
-//
-//  WelcomeScreen.swift
-//  Trackizer
-//
-//  Created by Alexandr Alimov on 15/04/24.
-//
+import UIKit
 
-import Foundation
+final class WelcomeScreen: UIViewController {
+    //MARK: Constants
+    
+    //MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setViews()
+        setLayouts()
+    }
+    
+    //MARK: Methods
+}
+
+//MARK: - Extensions
+private extension WelcomeScreen {
+    func setViews() {
+        
+    }
+    
+    func setLayouts() {
+        
+    }
+}
