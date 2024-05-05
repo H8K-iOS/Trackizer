@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBtfs6D5SLpQveDV7KlhwwIK3Nny3lL-wQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>721109833606</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>AA.Trackizer</string>
+	<key>PROJECT_ID</key>
+	<string>trackizer-15f7c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>trackizer-15f7c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:721109833606:ios:6d62b8c17fba5b53c47e07</string>
+</dict>
+</plist>

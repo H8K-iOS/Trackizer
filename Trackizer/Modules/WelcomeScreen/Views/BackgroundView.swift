@@ -1,8 +1,8 @@
 import UIKit
 
-class BackgroundView: UIView {
+final class BackgroundView: UIView {
+    //MARK: Constants
     private let container = UIView()
-    
     private let youTubeImage = UIImageView(image: #imageLiteral(resourceName: "WelcomeYT"))
     private let oneDriveImage = UIImageView(image: #imageLiteral(resourceName: "welcomeOnedrive"))
     private let spotifyImage = UIImageView(image: #imageLiteral(resourceName: "welcomeSpotify"))
@@ -14,8 +14,7 @@ class BackgroundView: UIView {
     private let backItemMedium1 = UIImageView(image: #imageLiteral(resourceName: "back2.png"))
     private let backItemMedium2 = UIImageView(image: #imageLiteral(resourceName: "back2.png"))
 
-
-    
+    //MARK: Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
@@ -26,6 +25,10 @@ class BackgroundView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+//MARK: - Extensions
+private extension BackgroundView {
     private func setViews() {
         self.addSubview(container)
         container.backgroundColor = .clear
@@ -68,7 +71,6 @@ class BackgroundView: UIView {
         backItemMedium2.contentMode = .scaleAspectFit
         
     }
-    
     private func setConst() {
        
         NSLayoutConstraint.activate([
