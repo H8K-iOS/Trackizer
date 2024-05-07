@@ -3,6 +3,10 @@ import UIKit
 
 //MARK: - UIViewController
 extension UIViewController {
+    func setBackground() {
+        self.view.backgroundColor = GrayColors.gray80.OWColor
+    }
+    
     func createTrackizerLabel() -> UIView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         
@@ -224,12 +228,6 @@ extension BudgetViewController {
         case category
     }
     
-    
-    /// Buttons for budgets
-    /// - Parameters:
-    ///   - type: cases: Budget/Category
-    ///   - selector: ButtonTapped
-    /// - Returns: UIButton
     func createButton(type: ButtonType,selector: Selector) -> UIButton {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -269,3 +267,5 @@ extension BudgetViewController {
     }
     
 }
+
+

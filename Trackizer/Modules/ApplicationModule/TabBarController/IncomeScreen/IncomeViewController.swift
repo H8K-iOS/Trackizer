@@ -1,6 +1,6 @@
 import UIKit
 
-final class CalendarViewController: UIViewController {
+final class IncomeViewController: UIViewController {
     //MARK: Constants
     
     
@@ -19,6 +19,6 @@ final class CalendarViewController: UIViewController {
 }
 
 //MARK: - Extensions
-private extension CalendarViewController {
+private extension IncomeViewController {
     
 }

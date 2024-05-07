@@ -22,10 +22,12 @@ final class MainTabarController: UITabBarController {
 //MARK: - Extensions
 private extension MainTabarController {
     func setupTabBar() {
-        viewControllers = [generateVC(for: BudgetViewController(), title: "Budgets",
+        viewControllers = [generateVC(for: BudgetViewController(), title: "Spends",
                                            icon: #imageLiteral(resourceName: "Home.png")),
-                           generateVC(for: SubsViewController(), title: "Subscriptions",
+                           generateVC(for: SubsViewController(), title: "Exspense",
                                            icon: #imageLiteral(resourceName: "Budgets.png")),
+                           generateVC(for: IncomeViewController(), title: "Income",
+                                           icon: #imageLiteral(resourceName: "Credit Cards")),
                            generateVC(for: CalendarViewController(), title: "Calendar",
                                            icon: #imageLiteral(resourceName: "Calendar.png"))
         ]

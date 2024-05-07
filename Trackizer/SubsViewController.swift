@@ -11,7 +11,7 @@ final class SubsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = GrayColors.gray80.OWColor
+        setBackground()
     }
     //MARK: Methods
     

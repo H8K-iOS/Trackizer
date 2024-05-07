@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		565993DC3F9FD792187C6956 /* Pods_Trackizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D7C56AAFD2778D42FAC7B2 /* Pods_Trackizer.framework */; };
+		8C1F197D2BE82D98002513D8 /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F197C2BE82D98002513D8 /* OtherExtensions.swift */; };
+		8C1F197F2BEA32B9002513D8 /* CategoryCell+Extensons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F197E2BEA32B9002513D8 /* CategoryCell+Extensons.swift */; };
+		8C1F19822BEAE279002513D8 /* AddSpendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F19812BEAE279002513D8 /* AddSpendsViewController.swift */; };
 		8C85EA222BE3DA0F00832111 /* CategorieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85EA212BE3DA0F00832111 /* CategorieCell.swift */; };
 		8C8E6B332BE0F8370040977D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B322BE0F8370040977D /* AuthService.swift */; };
 		8C8E6B372BE0F9FC0040977D /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B362BE0F9FC0040977D /* AuthModel.swift */; };
 		8C8E6B392BE299EB0040977D /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B382BE299EB0040977D /* ValidationManager.swift */; };
 		8C8E6B3B2BE29DAB0040977D /* SigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B3A2BE29DAB0040977D /* SigninViewModel.swift */; };
+		8C9297242BE7B67A004FE8E1 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9297232BE7B67A004FE8E1 /* IncomeViewController.swift */; };
 		8CA2E1322BE3BA500093A0BA /* MainTabarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2E1312BE3BA500093A0BA /* MainTabarController.swift */; };
 		8CA2E1342BE3BBAE0093A0BA /* SubsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2E1332BE3BBAE0093A0BA /* SubsViewController.swift */; };
 		8CA2E1372BE3BC230093A0BA /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2E1362BE3BC230093A0BA /* CalendarViewController.swift */; };
@@ -37,11 +41,15 @@
 /* Begin PBXFileReference section */
 		14065D4B0B30DE62C75376E5 /* Pods-Trackizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trackizer.debug.xcconfig"; path = "Target Support Files/Pods-Trackizer/Pods-Trackizer.debug.xcconfig"; sourceTree = "<group>"; };
 		23D7C56AAFD2778D42FAC7B2 /* Pods_Trackizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trackizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1F197C2BE82D98002513D8 /* OtherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
+		8C1F197E2BEA32B9002513D8 /* CategoryCell+Extensons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryCell+Extensons.swift"; sourceTree = "<group>"; };
+		8C1F19812BEAE279002513D8 /* AddSpendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendsViewController.swift; sourceTree = "<group>"; };
 		8C85EA212BE3DA0F00832111 /* CategorieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorieCell.swift; sourceTree = "<group>"; };
 		8C8E6B322BE0F8370040977D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8C8E6B362BE0F9FC0040977D /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		8C8E6B382BE299EB0040977D /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		8C8E6B3A2BE29DAB0040977D /* SigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewModel.swift; sourceTree = "<group>"; };
+		8C9297232BE7B67A004FE8E1 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		8CA2E1312BE3BA500093A0BA /* MainTabarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabarController.swift; sourceTree = SOURCE_ROOT; };
 		8CA2E1332BE3BBAE0093A0BA /* SubsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubsViewController.swift; path = Trackizer/SubsViewController.swift; sourceTree = SOURCE_ROOT; };
 		8CA2E1362BE3BC230093A0BA /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8C1F19802BEAE254002513D8 /* AddSpendsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F19832BEAEC33002513D8 /* Views */,
+			);
+			path = AddSpendsScreen;
+			sourceTree = "<group>";
+		};
+		8C1F19832BEAEC33002513D8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C1F19812BEAE279002513D8 /* AddSpendsViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8C8E6B342BE0F8600040977D /* to-name */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +124,14 @@
 				8C8E6B362BE0F9FC0040977D /* AuthModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8C9297222BE7B648004FE8E1 /* IncomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8C9297232BE7B67A004FE8E1 /* IncomeViewController.swift */,
+			);
+			path = IncomeScreen;
 			sourceTree = "<group>";
 		};
 		8CC62D3F2BCD219F0002196D = {
@@ -157,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8CA2E1312BE3BA500093A0BA /* MainTabarController.swift */,
+				8C9297222BE7B648004FE8E1 /* IncomeScreen */,
 				8CC62D622BCD21DE0002196D /* BudgetScreen */,
 				8CC62D732BCD24DB0002196D /* SubsScreen */,
 				8CC62D742BCD252E0002196D /* CalendarScren */,
@@ -167,6 +200,7 @@
 		8CC62D622BCD21DE0002196D /* BudgetScreen */ = {
 			isa = PBXGroup;
 			children = (
+				8C1F19802BEAE254002513D8 /* AddSpendsScreen */,
 				8CC62D632BCD21EB0002196D /* Views */,
 				8CC62D642BCD21F30002196D /* ViewModels */,
 			);
@@ -314,7 +348,6 @@
 			children = (
 				8CC62D782BCD25950002196D /* Views */,
 				8CC62D792BCD25990002196D /* ViewModels */,
-				8CC62D752BCD25520002196D /* AddNewSub */,
 			);
 			path = SubsScreen;
 			sourceTree = "<group>";
@@ -326,13 +359,6 @@
 				8CC62D772BCD25880002196D /* ViewModels */,
 			);
 			path = CalendarScren;
-			sourceTree = "<group>";
-		};
-		8CC62D752BCD25520002196D /* AddNewSub */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AddNewSub;
 			sourceTree = "<group>";
 		};
 		8CC62D762BCD25830002196D /* Views */ = {
@@ -371,6 +397,8 @@
 				8CC62D802BCD32AD0002196D /* UIColor+Extensions.swift */,
 				8CDACA062BD525AD00BADFC9 /* UIViewController+Extensions.swift */,
 				8CDACA0A2BDCE0DC00BADFC9 /* UINavigationController+Extnesions.swift */,
+				8C1F197C2BE82D98002513D8 /* OtherExtensions.swift */,
+				8C1F197E2BEA32B9002513D8 /* CategoryCell+Extensons.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -522,9 +550,13 @@
 				8CC62D7C2BCD25B90002196D /* WelcomeScreen.swift in Sources */,
 				8CC62D4E2BCD219F0002196D /* SceneDelegate.swift in Sources */,
 				8CDACA092BDB9E3000BADFC9 /* PasswordResetController.swift in Sources */,
+				8C1F197D2BE82D98002513D8 /* OtherExtensions.swift in Sources */,
 				8CDACA102BDD35DC00BADFC9 /* AlertManager.swift in Sources */,
+				8C1F19822BEAE279002513D8 /* AddSpendsViewController.swift in Sources */,
+				8C1F197F2BEA32B9002513D8 /* CategoryCell+Extensons.swift in Sources */,
 				8CA2E1342BE3BBAE0093A0BA /* SubsViewController.swift in Sources */,
 				8CC62D812BCD32AD0002196D /* UIColor+Extensions.swift in Sources */,
+				8C9297242BE7B67A004FE8E1 /* IncomeViewController.swift in Sources */,
 				8C85EA222BE3DA0F00832111 /* CategorieCell.swift in Sources */,
 				8CA2E1322BE3BA500093A0BA /* MainTabarController.swift in Sources */,
 				8C8E6B332BE0F8370040977D /* AuthService.swift in Sources */,
