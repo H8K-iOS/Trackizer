@@ -1,6 +1,6 @@
 import UIKit
 
-final class AddSpendsViewController: UIViewController {
+final class AddNewCategoryViewController: UIViewController {
     //MARK: Constants
     private let blurEffect = UIBlurEffect(style: .dark)
     private let blurContaienr: UIVisualEffectView = {
@@ -41,7 +41,7 @@ final class AddSpendsViewController: UIViewController {
 }
 
 //MARK: - Extensions
-private extension AddSpendsViewController {
+private extension AddNewCategoryViewController {
     func setupBackground() {
         self.view.addSubview(blurContaienr)
         self.view.addSubview(continueButton)

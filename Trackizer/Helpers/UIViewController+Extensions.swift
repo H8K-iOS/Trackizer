@@ -233,39 +233,59 @@ extension BudgetViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setImage(UIImage(named: "addIcon"), for: .normal)
         btn.addTarget(self, action: selector, for: .touchUpInside)
+        btn.tintColor = .systemGray
+        btn.layer.cornerRadius = 15
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.darkGray.cgColor
         
         switch type {
-            
         case .budget:
-            btn.tintColor = .systemGray
             btn.setTitle("Add spends", for: .normal)
-            
-            
-            btn.layer.cornerRadius = 15
-            btn.layer.borderWidth = 1
-            btn.layer.borderColor = UIColor.darkGray.cgColor
-            
+
             NSLayoutConstraint.activate([
                 btn.heightAnchor.constraint(equalToConstant: 60),
             ])
         case .category:
-            btn.tintColor = .systemGray
             btn.setTitle("Add new category", for: .normal)
-            btn.layer.cornerRadius = 15
-            btn.layer.borderWidth = 1
-            btn.layer.borderColor = UIColor.darkGray.cgColor
             
             NSLayoutConstraint.activate([
-                
                 btn.heightAnchor.constraint(equalToConstant: 84),
             ])
         }
-        
-        
-        
         return btn
     }
+}
+
+//MARK: - Add Spends ViewController
+
+extension AddSpendsViewController {
     
+    func createButton(selector: Selector) -> UIButton {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Add spends", for: .normal)
+        btn.tintColor = .systemGray
+        btn.layer.cornerRadius = 15
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.darkGray.cgColor
+        btn.addTarget(self, action: selector, for: .touchUpInside)
+        return btn
+    }
+}
+
+extension AddNewCategoryViewController {
+    
+    func createButton(selector: Selector) -> UIButton {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Add new category", for: .normal)
+        btn.tintColor = .systemGray
+        btn.layer.cornerRadius = 15
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.darkGray.cgColor
+        btn.addTarget(self, action: selector, for: .touchUpInside)
+        return btn
+    }
 }
 
 

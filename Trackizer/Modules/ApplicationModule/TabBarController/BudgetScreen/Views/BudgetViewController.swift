@@ -3,7 +3,7 @@ import UIKit
 final class BudgetViewController: UIViewController {
     //MARK: Constants
     private let tableView = UITableView()
-    
+    private let vStack = UIStackView()
     
     //TODO: - progress view
     private var backgroundLayer: CAShapeLayer?
@@ -17,9 +17,10 @@ final class BudgetViewController: UIViewController {
     private var categorySum: Double {
         return Double(self.firstCategorie) + Double(self.secondeCategorie) + Double(self.thirdCategorie)
     }
-    private let total = 500
+    private let total = 300.0
     
     let budgetLabel = UILabel()
+    let budgetDescriptionLabel = UILabel()
     let container = UIView()
     
     //MARK: Variables
@@ -39,8 +40,7 @@ final class BudgetViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         setupRoundViewProgressLayers()
-        
-        navigationController?.navigationBar.isHidden = true
+        check()
     }
         //MARK: ViewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
@@ -66,20 +66,25 @@ final class BudgetViewController: UIViewController {
     
     @objc func addCategoryButtonTapped() {
 
-        print("addCategoryButtonTapped")
+        present(AddNewCategoryViewController(), animated: true)
     }
     
-
+    private func check() {
+        if categorySum > total {
+            budgetLabel.textColor = .red
+        }
+    }
 }
 
 //MARK: - Extensions
+    //MARK: - VC UI
 private extension BudgetViewController {
     func setupUI() {
         //TODO: -
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
-        tableView.isScrollEnabled = false
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(CategorieCell.self, forCellReuseIdentifier: CategorieCell.identifier)
         
         
@@ -103,30 +108,6 @@ private extension BudgetViewController {
     }
     
 }
-extension BudgetViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        addSpends()
-    }
-}
-
-extension BudgetViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        3
-    }
-    
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategorieCell.identifier,
-                                                 for: indexPath) as? CategorieCell else { return UITableViewCell() }
-        
-        cell.selectionStyle = .none
-        cell.selectedBackgroundView = .none
-        return cell
-    }
-    
-    
-}
 
 //MARK: - Round view
 extension BudgetViewController  {
@@ -134,16 +115,28 @@ extension BudgetViewController  {
     func setupRoundView() {
         
         self.view.addSubview(container)
-        container.addSubview(budgetLabel)
+        container.addSubview(vStack)
+        vStack.addArrangedSubview(budgetLabel)
+        vStack.addArrangedSubview(budgetDescriptionLabel)
     
         container.translatesAutoresizingMaskIntoConstraints = false
         budgetLabel.translatesAutoresizingMaskIntoConstraints = false
+        budgetDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        vStack.translatesAutoresizingMaskIntoConstraints = false
         
         container.backgroundColor = .clear
         
-        budgetLabel.text = "$ \(categorySum.rounded(toPlaces: 2))"
+        vStack.axis = .vertical
+        vStack.spacing = 5
+        vStack.alignment = .center
+        
+        budgetLabel.text = "$\(categorySum.rounded(toPlaces: 2))"
         budgetLabel.font = .systemFont(ofSize: 34, weight: .heavy)
         budgetLabel.textColor = .white
+        
+        budgetDescriptionLabel.text = "of $\(total.rounded(toPlaces: 2)) budget"
+        budgetDescriptionLabel.font = .systemFont(ofSize: 16, weight: .medium)
+        budgetDescriptionLabel.textColor = .darkGray
         
         NSLayoutConstraint.activate([
             container.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -154,6 +147,7 @@ extension BudgetViewController  {
             budgetLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 4),
             budgetLabel.centerXAnchor.constraint(equalTo: container.centerXAnchor),
         ])
+        
     }
 
     //MARK: Progress View Setup
@@ -242,3 +236,30 @@ extension BudgetViewController  {
         }
     }
 }
+
+//MARK: - Table View
+extension BudgetViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        addSpends()
+    }
+}
+
+extension BudgetViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CategorieCell.identifier,
+                                                 for: indexPath) as? CategorieCell else { return UITableViewCell() }
+        
+        cell.selectionStyle = .none
+        cell.selectedBackgroundView = .none
+        return cell
+    }
+    
+    
+}
+

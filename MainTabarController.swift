@@ -35,9 +35,10 @@ private extension MainTabarController {
     }
     
     func generateVC(for vc: UIViewController, title: String, icon: UIImage?) -> UIViewController {
+        let nav = UINavigationController(rootViewController: vc)
         vc.tabBarItem.image = icon
         vc.tabBarItem.title = title
-        return vc
+        return nav
     }
     
     private func drawTabBar() {
