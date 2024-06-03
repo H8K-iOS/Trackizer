@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-final class SigninViewModel {
+final class SignViewModel {
     
     init() {}
     
@@ -45,6 +45,31 @@ final class SigninViewModel {
                 AlertManager.showRegistrationErrorAlert(on: vc)
             }
 
+        }
+    }
+    
+    func signIn(email: String, password: String, vc: UIViewController) {
+        let loginUserRequest = LoginUserRequest(email: email.lowercased(), password: password)
+        
+        if !ValidationManager.isValidEmail(for: loginUserRequest.email) {
+            AlertManager.showInvalidEmailAlert(on: vc)
+        }
+        
+        if !ValidationManager.isValidPassword(for: loginUserRequest.password) {
+            AlertManager.showInvalidPasswordAlert(on: vc)
+        }
+        
+        print(loginUserRequest)
+        
+        AuthService.shared.signin(with: loginUserRequest) { error in
+            if let error = error {
+                AlertManager.showSigninErrorAlert(on: vc, with: error)
+                return
+            }
+            
+            if let sceneDelegate = vc.view.window?.windowScene?.delegate as? SceneDelegate {
+                sceneDelegate.checkAunthentification()
+            }
         }
     }
 }

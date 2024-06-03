@@ -24,7 +24,7 @@ private extension MainTabarController {
     func setupTabBar() {
         viewControllers = [generateVC(for: BudgetViewController(), title: "Spends",
                                            icon: #imageLiteral(resourceName: "Home.png")),
-                           generateVC(for: SubsViewController(), title: "Exspense",
+                           generateVC(for: ExpenseViewController(), title: "Exspense",
                                            icon: #imageLiteral(resourceName: "Budgets.png")),
                            generateVC(for: IncomeViewController(), title: "Income",
                                            icon: #imageLiteral(resourceName: "Credit Cards")),
@@ -42,6 +42,7 @@ private extension MainTabarController {
     }
     
     private func drawTabBar() {
+        tabBar.backgroundImage = UIImage()
         tabBar.backgroundColor = .clear
         tabBar.tintColor = AccentPrimarySection.accentP50.OWColor
         let posX: CGFloat = 10

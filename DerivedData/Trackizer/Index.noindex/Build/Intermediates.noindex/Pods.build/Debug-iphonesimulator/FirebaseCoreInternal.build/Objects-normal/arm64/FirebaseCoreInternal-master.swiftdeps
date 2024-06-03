@@ -1,0 +1,29 @@
+version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
+options: "cfa976cb6bd62ade95415d57cae104302a3e03b89ffaea068b71d4cb76461dec"
+build_start_time: [1715700232, 531198000]
+build_end_time: [1715700237, 40675000]
+inputs:
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/Heartbeat.swift"
+  : [1714468752, 748260498]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatController.swift"
+  : [1714468752, 749669313]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatLoggingTestUtils.swift"
+  : [1714468752, 750078678]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatStorage.swift"
+  : [1714468752, 750320196]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatsBundle.swift"
+  : [1714468752, 750964641]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatsPayload.swift"
+  : [1714468752, 751306056]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/RingBuffer.swift"
+  : [1714468752, 748476982]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/Storage.swift"
+  : [1714468752, 748079538]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/StorageFactory.swift"
+  : [1714468752, 751502037]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/WeakContainer.swift"
+  : [1714468752, 751167774]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/_ObjC_HeartbeatController.swift"
+  : [1714468752, 749451875]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/_ObjC_HeartbeatsPayload.swift"
+  : [1714468752, 749864101]

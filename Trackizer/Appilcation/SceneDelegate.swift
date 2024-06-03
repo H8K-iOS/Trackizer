@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseFirestore
 import FirebaseAuth
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -9,7 +10,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         self.setScene(with: scene)
         checkAunthentification()
-        
     }
 
     private func setScene(with scene: UIScene) {
@@ -27,7 +27,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             //MARK: Go To ApplicationModule
             self.goToController(with: MainTabarController())
-        }
+            }
     }
     
     

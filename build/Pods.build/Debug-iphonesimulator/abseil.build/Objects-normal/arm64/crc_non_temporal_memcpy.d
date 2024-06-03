@@ -1,0 +1,47 @@
+dependencies: \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/crc/internal/crc_non_temporal_memcpy.cc \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/Target\ Support\ Files/abseil/abseil-prefix.pch \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/config.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/options.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/policy_checks.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/crc/crc32c.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/crc/internal/crc32c_inline.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/endian.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/casts.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/identity.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/macros.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/attributes.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/optimization.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/port.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/meta/type_traits.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/unaligned_access.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/nullability.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/nullability_impl.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/crc/internal/crc32_x86_arm_combined_simd.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/str_format.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/internal/str_format/arg.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/numeric/int128.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/numeric/int128_have_intrinsic.inc \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/has_absl_stringify.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/string_view.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/throw_delegate.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/internal/str_format/extension.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/internal/str_format/output.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/internal/str_format/bind.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/container/inlined_vector.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/algorithm/algorithm.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/container/internal/inlined_vector.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/container/internal/compressed_tuple.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/utility/utility.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/inline_variable.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/invoke.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/memory/memory.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/types/span.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/types/internal/span.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/internal/str_format/checker.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/internal/str_format/constexpr_parser.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/const_init.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/internal/str_format/parser.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/crc/internal/crc_memcpy.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/crc/internal/non_temporal_memcpy.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/crc/internal/non_temporal_arm_intrinsics.h

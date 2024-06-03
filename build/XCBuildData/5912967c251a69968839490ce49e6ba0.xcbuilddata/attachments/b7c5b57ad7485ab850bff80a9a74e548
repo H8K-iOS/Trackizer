@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/h8k/Documents/swift/projects/Trackizer/build/Debug-iphonesimulator/FirebaseFirestore/FirebaseFirestore.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseFirestore.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/h8k/Documents/swift/projects/Trackizer/build/Debug-iphonesimulator/FirebaseFirestore/FirebaseFirestore.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "FirebaseFirestore-Swift.h",
+      'external-contents': "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseFirestore.build/unextended-interface-header.h",
+    }]
+    }]
+}

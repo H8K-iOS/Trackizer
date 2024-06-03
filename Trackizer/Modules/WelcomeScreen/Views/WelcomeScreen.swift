@@ -28,12 +28,12 @@ final class WelcomeScreen: UIViewController {
     }
     //MARK: Methods
     @objc private func startButtonTapped() {
-        navigationController?.pushViewController(SignupViewController(), animated: true)
+        navigationController?.pushViewController(SignupWithViewController(), animated: true)
         
     }
     
     @objc private func loginButtonTapped() {
-        navigationController?.pushViewController(SigninViewController(viewControllerState: .signin), animated: true)
+        navigationController?.pushViewController(SigninViewController(), animated: true)
         
     }
 }

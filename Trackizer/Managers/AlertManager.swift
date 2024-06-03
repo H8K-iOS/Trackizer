@@ -91,4 +91,28 @@ extension AlertManager {
     }
 }
 
+//MARK: - Category Errors
+extension AlertManager {
+   
+   public static func showAddCategoryErrorAlert(on vc: UIViewController) {
+       self.showAlert(on: vc, title: "Invalid Category Name/Category Amount or Category Already exists.", message: nil)
+   }
+   
+   public static func showAddCategoryErrorAlert(on vc: UIViewController, with error: Error) {
+       self.showAlert(on: vc, title: "Invalid Category Name/Category Amount or Category Already exists.", message: "\(error.localizedDescription)")
+   }
+}
+
+//MARK: - Add spends Errors
+extension AlertManager {
+   
+   public static func showAddSpendsErrorAlert(on vc: UIViewController) {
+       self.showAlert(on: vc, title: "Invalid Spends Name/Spends Amount.", message: nil)
+   }
+   
+   public static func showAddSpendsErrorAlert(on vc: UIViewController, with error: Error) {
+       self.showAlert(on: vc, title: "Invalid Spends Name/Spends Amount.", message: "\(error.localizedDescription)")
+   }
+}
+
 

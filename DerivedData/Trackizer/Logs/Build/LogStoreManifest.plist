@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>11</integer>
+	<key>logs</key>
+	<dict>
+		<key>2008CD2E-A98F-4661-BBDD-401B183C1983</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>2008CD2E-A98F-4661-BBDD-401B183C1983.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>40</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Trackizer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Trackizer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Trackizer</string>
+			<key>timeStartedRecording</key>
+			<real>737393023.49995601</real>
+			<key>timeStoppedRecording</key>
+			<real>737393031.11732101</real>
+			<key>title</key>
+			<string>Build Trackizer</string>
+			<key>uniqueIdentifier</key>
+			<string>2008CD2E-A98F-4661-BBDD-401B183C1983</string>
+		</dict>
+		<key>6D0F4014-12A2-406C-A202-EC04CA31CC18</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>6D0F4014-12A2-406C-A202-EC04CA31CC18.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>40</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Trackizer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Trackizer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Trackizer</string>
+			<key>timeStartedRecording</key>
+			<real>737393003.26278806</real>
+			<key>timeStoppedRecording</key>
+			<real>737393004.45723999</real>
+			<key>title</key>
+			<string>Build Trackizer</string>
+			<key>uniqueIdentifier</key>
+			<string>6D0F4014-12A2-406C-A202-EC04CA31CC18</string>
+		</dict>
+		<key>AA772BD4-349F-49CD-901A-1E922721A6E4</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>AA772BD4-349F-49CD-901A-1E922721A6E4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>40</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Trackizer project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Trackizer</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Trackizer</string>
+			<key>timeStartedRecording</key>
+			<real>737392859.39664996</real>
+			<key>timeStoppedRecording</key>
+			<real>737392860.85272706</real>
+			<key>title</key>
+			<string>Build Trackizer</string>
+			<key>uniqueIdentifier</key>
+			<string>AA772BD4-349F-49CD-901A-1E922721A6E4</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

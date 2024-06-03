@@ -1,0 +1,28 @@
+{
+  "" : {
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseSharedSwift-master.dia",
+    "emit-module-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseSharedSwift-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseSharedSwift-master-emit-module.dia",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseSharedSwift-master.swiftdeps"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseSharedSwift/FirebaseSharedSwift/Sources/FirebaseRemoteConfigValueDecoding.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseRemoteConfigValueDecoding~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseSharedSwift/FirebaseSharedSwift/Sources/third_party/FirebaseDataEncoder/FirebaseDataEncoder.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Pods.build/Debug-iphonesimulator/FirebaseSharedSwift.build/Objects-normal/arm64/FirebaseDataEncoder~partial.swiftmodule"
+  }
+}

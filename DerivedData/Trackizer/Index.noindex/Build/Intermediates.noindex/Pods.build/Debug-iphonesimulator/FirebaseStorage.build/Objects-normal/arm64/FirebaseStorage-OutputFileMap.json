@@ -1,0 +1,78 @@
+{
+  "" : {
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/DerivedData/Trackizer/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/Objects-normal/arm64/FirebaseStorage-master.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/DerivedData/Trackizer/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/Objects-normal/arm64/FirebaseStorage-master.dia",
+    "emit-module-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/DerivedData/Trackizer/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/Objects-normal/arm64/FirebaseStorage-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/DerivedData/Trackizer/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/Objects-normal/arm64/FirebaseStorage-master-emit-module.dia",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/DerivedData/Trackizer/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/Objects-normal/arm64/FirebaseStorage-master.swiftdeps"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/AsyncAwait.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageDeleteTask.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageGetDownloadURLTask.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageGetMetadataTask.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageListTask.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StoragePath.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageTaskState.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageTokenAuthorizer.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageUpdateMetadataTask.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageUtils.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Result.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Storage.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageComponent.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageConstants.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageDownloadTask.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageError.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageListResult.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageMetadata.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageObservableTask.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageReference.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageTask.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageTaskSnapshot.swift" : {
+
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageUploadTask.swift" : {
+
+  }
+}

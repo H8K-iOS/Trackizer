@@ -2,6 +2,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
+
 final class AuthService {
     public static let shared = AuthService()
     private let dataBase = Firestore.firestore()
@@ -17,7 +18,7 @@ final class AuthService {
     ///   - Bool: wasRegistered - Determins if ther user was registered and saved in the database correctly
     ///   - Error?: An optional Error if Firebase provides ones
     public func registerUsers(with userRequest: RegisterUserRequest,
-                       completion: @escaping(Bool, Error?) -> Void) {
+                              completion: @escaping(Bool, Error?) -> Void) {
         
         let username = userRequest.userName
         let email = userRequest.email
@@ -34,32 +35,35 @@ final class AuthService {
                 return
             }
             
-            self.dataBase.collection("users")
-                .document(resultUser.uid)
-                .setData([
-                    "username": username,
-                    "email": email,
-                    "password": password
-                ]) { error in
-                    if let error = error {
-                        completion(false, error)
-                        return
-                    }
-                    
-                    completion(true, nil)
+            let userData: [String: Any] = [
+                "username": username,
+                "email": email,
+                "password": password
+            ]
+            
+            let userCollectionRef = self.dataBase.collection("users")
+            
+            userCollectionRef.document(resultUser.uid).setData(userData) { error in
+                if let error = error {
+                    completion(false, error)
+                    return
                 }
+                
+               
+            
+            }
         }
     }
     
     public func signin(with userRequest: LoginUserRequest,
                        completion: @escaping(Error?) -> Void) {
-        Auth.auth().signIn(withEmail: userRequest.email, password: userRequest.password) {
-            result, error in
+        Auth.auth().signIn(withEmail: userRequest.email, password: userRequest.password) { result, error in
             if let error = error {
                 completion(error)
                 return
             } else {
-                completion(nil)
+
+               
             }
         }
     }
@@ -78,5 +82,90 @@ final class AuthService {
             completion(error)
         }
     }
-}
+    
+    
+    
+    
+    
+    func updateCategorySpending(categoryName: String, amount: Double, completion: @escaping (Error?) -> Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else {
+            completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let categoryRef = db.collection("users").document(userUID).collection("Category").document(categoryName)
+        
+        categoryRef.getDocument { document, error in
+            if let document = document, document.exists {
+                categoryRef.updateData([
+                    "moneySpent": FieldValue.increment(amount)
+                ]) { error in
+                    completion(error)
+                }
+            } else {
+                categoryRef.setData([
+                    "categoryName": categoryName,
+                    "moneySpent": amount,
+                    "total": 0.0
+                ]) { error in
+                    completion(error)
+                }
+            }
+        }
+    }
+    
+    
+    func addNewCategory(categoryName: String, totalBudget: Double, completion: @escaping (Error?) -> Void) {
+            guard let userUID = Auth.auth().currentUser?.uid else {
+                completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+                return
+            }
+            
+            let db = Firestore.firestore()
+            let categoryRef = db.collection("users").document(userUID).collection("Category").document(categoryName)
+            
+            categoryRef.getDocument { document, error in
+                if let document = document, document.exists {
+                    if let error {
+                        completion(error)
+                    }
+                } else {
+                    categoryRef.setData([
+                        "categoryName": categoryName,
+                        "moneySpent": 0.0,
+                        "total": totalBudget
+                    ]) { error in
+                        completion(error)
+                    }
+                }
+            }
+    }
 
+
+    func addNewSpends(categoryName: String, spendsName: String, amount: Double, completion: @escaping (Error?) -> Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else {
+            completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let categoryRef = db.collection("users").document(userUID).collection("Spends").document(spendsName)
+        
+        categoryRef.getDocument { document, error in
+            if let document = document, document.exists {
+                if let error {
+                    completion(error)
+                }
+            } else {
+                categoryRef.setData([
+                    "categoryName": categoryName,
+                    "spendsName": spendsName,
+                    "moneySpent": amount,
+                ]) { error in
+                    completion(error)
+                }
+            }
+        }
+}
+}

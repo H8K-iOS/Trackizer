@@ -1,0 +1,46 @@
+dependencies: \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/create_thread_identity.cc \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/Target\ Support\ Files/abseil/abseil-prefix.pch \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/low_level_alloc.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/attributes.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/config.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/options.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/policy_checks.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/port.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/optimization.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/waiter.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/futex_waiter.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/kernel_timeout.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/raw_logging.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/atomic_hook.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/log_severity.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/macros.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/time/clock.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/time/time.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/strings/string_view.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/nullability.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/nullability_impl.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/meta/type_traits.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/throw_delegate.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/time/civil_time.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/time/internal/cctz/include/cctz/civil_time.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/time/internal/cctz/include/cctz/civil_time_detail.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/time/internal/cctz/include/cctz/time_zone.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/futex.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/waiter_base.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/thread_identity.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/per_thread_tls.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/pthread_waiter.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/sem_waiter.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/stdcpp_waiter.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/win32_waiter.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/spinlock.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/const_init.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/dynamic_annotations.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/dynamic_annotations.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/low_level_scheduling.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/scheduling_mode.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/internal/tsan_mutex_interface.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/base/thread_annotations.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/per_thread_sem.h \
+  /Users/h8k/Documents/swift/projects/Trackizer/Pods/abseil/absl/synchronization/internal/create_thread_identity.h

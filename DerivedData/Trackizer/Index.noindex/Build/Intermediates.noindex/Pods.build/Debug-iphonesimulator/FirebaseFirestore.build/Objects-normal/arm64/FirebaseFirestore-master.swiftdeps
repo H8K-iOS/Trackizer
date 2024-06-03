@@ -1,0 +1,42 @@
+version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
+options: "d3514541f008f941627547df1bf7effb8253fe6735c13fb38aaf1a639c2f2abf"
+build_start_time: [1715700237, 755058000]
+build_end_time: [1715700238, 254952000]
+inputs:
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/AsyncAwait/CollectionReference+AsyncAwait.swift"
+  : [1714468766, 662153959]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/AsyncAwait/Firestore+AsyncAwait.swift"
+  : [1714468766, 662072420]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/CodableErrors.swift": [1714468766, 660421371]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/CodablePassThroughTypes.swift"
+  : [1714468766, 661643505]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/CollectionReference+WriteEncodable.swift"
+  : [1714468766, 660814523]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/DocumentID.swift": [1714468766, 661271095]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/DocumentReference+Codable.swift"
+  : [1714468766, 660103082]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/DocumentReference+ReadDecodable.swift"
+  : [1714468766, 661565303]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/DocumentReference+WriteEncodable.swift"
+  : [1714468766, 660921096]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/DocumentSnapshot+ReadDecodable.swift"
+  : [1714468766, 661078453]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/EncoderDecoder.swift": [1714468766, 660545825]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/ExplicitNull.swift": [1714468766, 660310029]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/FieldValue+Encodable.swift": [1714468766, 661461830]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/GeoPoint+Codable.swift": [1714468766, 660625457]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/ServerTimestamp.swift": [1714468766, 661725521]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/Timestamp+Codable.swift": [1714468766, 660204648]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/TimestampDecodingStrategy.swift"
+  : [1714468766, 661000967]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/TimestampEncodingStrategy.swift"
+  : [1714468766, 661162137]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/Transaction+WriteEncodable.swift"
+  : [1714468766, 660732984]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/Codable/WriteBatch+WriteEncodable.swift"
+  : [1714468766, 661377191]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/PropertyWrapper/FirestoreQuery.swift": [1714468766, 662345647]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/PropertyWrapper/FirestoreQueryObservable.swift"
+  : [1714468766, 662455558]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/PropertyWrapper/QueryPredicate.swift": [1714468766, 662569046]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseFirestore/Firestore/Swift/Source/SwiftHeaderWorkaround.swift": [1714468766, 659872770]

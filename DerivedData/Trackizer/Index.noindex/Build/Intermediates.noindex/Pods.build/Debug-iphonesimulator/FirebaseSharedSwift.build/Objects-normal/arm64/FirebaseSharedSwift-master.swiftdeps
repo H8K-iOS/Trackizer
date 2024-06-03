@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
+options: "9e85a48140892e8c643046d2be4ebdb6c7008c8b3f07d07be94f50941e4356e8"
+build_start_time: [1715700232, 525744000]
+build_end_time: [1715700237, 36951000]
+inputs:
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseSharedSwift/FirebaseSharedSwift/Sources/FirebaseRemoteConfigValueDecoding.swift"
+  : [1714468777, 447700262]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseSharedSwift/FirebaseSharedSwift/Sources/third_party/FirebaseDataEncoder/FirebaseDataEncoder.swift"
+  : [1714468777, 447474956]

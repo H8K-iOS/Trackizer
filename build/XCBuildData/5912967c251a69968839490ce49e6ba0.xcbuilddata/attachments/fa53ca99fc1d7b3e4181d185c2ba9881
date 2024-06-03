@@ -1,0 +1,308 @@
+{
+  "" : {
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/Trackizer-master.dia",
+    "emit-module-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/Trackizer-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/Trackizer-master-emit-module.dia",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/Trackizer-master.swiftdeps"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/MainTabarController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/MainTabarController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/MainTabarController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/MainTabarController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/MainTabarController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/MainTabarController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/MainTabarController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/MainTabarController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/MainTabarController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Appilcation/AppDelegate.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AppDelegate.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AppDelegate.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AppDelegate.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AppDelegate.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AppDelegate.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AppDelegate~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Appilcation/SceneDelegate.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SceneDelegate.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SceneDelegate.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SceneDelegate.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SceneDelegate.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SceneDelegate.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SceneDelegate~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Helpers/CategoryCell+Extensons.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategoryCell+Extensons.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategoryCell+Extensons.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategoryCell+Extensons.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategoryCell+Extensons.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategoryCell+Extensons.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategoryCell+Extensons.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategoryCell+Extensons.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategoryCell+Extensons~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Helpers/OtherExtensions.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/OtherExtensions.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/OtherExtensions.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/OtherExtensions.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/OtherExtensions.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/OtherExtensions.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/OtherExtensions.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/OtherExtensions.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/OtherExtensions~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Helpers/UIColor+Extensions.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIColor+Extensions.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIColor+Extensions.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIColor+Extensions.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIColor+Extensions.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIColor+Extensions.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIColor+Extensions.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIColor+Extensions.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIColor+Extensions~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Helpers/UINavigationController+Extnesions.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UINavigationController+Extnesions.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UINavigationController+Extnesions.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UINavigationController+Extnesions.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UINavigationController+Extnesions.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UINavigationController+Extnesions.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UINavigationController+Extnesions.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UINavigationController+Extnesions.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UINavigationController+Extnesions~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Helpers/UIViewController+Extensions.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIViewController+Extensions.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIViewController+Extensions.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIViewController+Extensions.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIViewController+Extensions.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIViewController+Extensions.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIViewController+Extensions.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIViewController+Extensions.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/UIViewController+Extensions~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Managers/AlertManager.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AlertManager.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AlertManager.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AlertManager.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AlertManager.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AlertManager.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AlertManager.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AlertManager.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AlertManager~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Managers/AuthService.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthService.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthService.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthService.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthService.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthService.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthService.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthService.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthService~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Managers/ValidationManager.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/ValidationManager.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/ValidationManager.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/ValidationManager.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/ValidationManager.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/ValidationManager.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/ValidationManager.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/ValidationManager.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/ValidationManager~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Models/AuthModel.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthModel.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthModel.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthModel.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthModel.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthModel.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthModel.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthModel.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AuthModel~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Models/BudgetModel.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetModel.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetModel.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetModel.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetModel.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetModel.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetModel.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetModel.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetModel~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/ApplicationModule/TabBarController/BudgetScreen/AddNewCategory/View/AddNewCategoryScreen.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddNewCategoryScreen.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddNewCategoryScreen.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddNewCategoryScreen.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddNewCategoryScreen.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddNewCategoryScreen.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddNewCategoryScreen.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddNewCategoryScreen.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddNewCategoryScreen~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/ApplicationModule/TabBarController/BudgetScreen/AddSpendsScreen/Views/AddSpendsViewController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddSpendsViewController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddSpendsViewController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddSpendsViewController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddSpendsViewController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddSpendsViewController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddSpendsViewController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddSpendsViewController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/AddSpendsViewController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/ApplicationModule/TabBarController/BudgetScreen/ViewModels/BudgetViewModel.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewModel.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewModel.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewModel.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewModel.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewModel.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewModel.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewModel.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewModel~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/ApplicationModule/TabBarController/BudgetScreen/Views/BudgetViewController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BudgetViewController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/ApplicationModule/TabBarController/BudgetScreen/Views/CategorieCell.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategorieCell.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategorieCell.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategorieCell.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategorieCell.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategorieCell.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategorieCell.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategorieCell.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CategorieCell~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/ApplicationModule/TabBarController/CalendarScren/Views/CalendarViewController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CalendarViewController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CalendarViewController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CalendarViewController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CalendarViewController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CalendarViewController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CalendarViewController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CalendarViewController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/CalendarViewController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/ApplicationModule/TabBarController/IncomeScreen/IncomeViewController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/IncomeViewController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/IncomeViewController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/IncomeViewController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/IncomeViewController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/IncomeViewController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/IncomeViewController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/IncomeViewController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/IncomeViewController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/AuthorizationModule/PasswordResetController/Views/PasswordResetController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/PasswordResetController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/PasswordResetController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/PasswordResetController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/PasswordResetController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/PasswordResetController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/PasswordResetController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/PasswordResetController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/PasswordResetController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/AuthorizationModule/SigninController/ViewModels/SigninViewModel.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewModel.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewModel.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewModel.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewModel.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewModel.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewModel.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewModel.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewModel~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/AuthorizationModule/SigninController/Views/SigninViewController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SigninViewController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/AuthorizationModule/SigninController/Views/SignupViewController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupViewController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupViewController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupViewController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupViewController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupViewController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupViewController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupViewController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupViewController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/AuthorizationModule/SignupController/Views/SignupWithViewController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupWithViewController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupWithViewController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupWithViewController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupWithViewController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupWithViewController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupWithViewController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupWithViewController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SignupWithViewController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/AuthorizationModule/SignupController/Views/WebViewerController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WebViewerController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WebViewerController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WebViewerController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WebViewerController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WebViewerController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WebViewerController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WebViewerController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WebViewerController~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/WelcomeScreen/Views/BackgroundView.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BackgroundView.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BackgroundView.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BackgroundView.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BackgroundView.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BackgroundView.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BackgroundView.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BackgroundView.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/BackgroundView~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/Modules/WelcomeScreen/Views/WelcomeScreen.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WelcomeScreen.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WelcomeScreen.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WelcomeScreen.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WelcomeScreen.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WelcomeScreen.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WelcomeScreen.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WelcomeScreen.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/WelcomeScreen~partial.swiftmodule"
+  },
+  "/Users/h8k/Documents/swift/projects/Trackizer/Trackizer/SubsViewController.swift" : {
+    "const-values" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SubsViewController.swiftconstvalues",
+    "dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SubsViewController.d",
+    "diagnostics" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SubsViewController.dia",
+    "index-unit-output-path" : "/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SubsViewController.o",
+    "llvm-bc" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SubsViewController.bc",
+    "object" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SubsViewController.o",
+    "swift-dependencies" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SubsViewController.swiftdeps",
+    "swiftmodule" : "/Users/h8k/Documents/swift/projects/Trackizer/build/Trackizer.build/Debug-iphonesimulator/Trackizer.build/Objects-normal/arm64/SubsViewController~partial.swiftmodule"
+  }
+}

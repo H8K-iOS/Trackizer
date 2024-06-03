@@ -1,0 +1,30 @@
+version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
+options: "4eb880f278ed92e33ae77f6d34eba25d383a8bd8b88555e7da54610094accdac"
+build_start_time: [1715700237, 104141000]
+build_end_time: [1715700237, 889408000]
+inputs:
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/AsyncAwait.swift": [1714468789, 86976766]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageDeleteTask.swift": [1714468789, 86046218]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageGetDownloadURLTask.swift"
+  : [1714468789, 86268663]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageGetMetadataTask.swift": [1714468789, 86729049]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageListTask.swift": [1714468789, 86838483]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StoragePath.swift": [1714468789, 86163282]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageTaskState.swift": [1714468789, 86529970]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageTokenAuthorizer.swift": [1714468789, 86636781]
+  ? "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageUpdateMetadataTask.swift"
+  : [1714468789, 86444616]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Internal/StorageUtils.swift": [1714468789, 86356163]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Result.swift": [1714468789, 85810899]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/Storage.swift": [1714468789, 84768772]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageComponent.swift": [1714468789, 85537195]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageConstants.swift": [1714468789, 87350606]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageDownloadTask.swift": [1714468789, 85306406]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageError.swift": [1714468789, 87608814]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageListResult.swift": [1714468789, 85425615]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageMetadata.swift": [1714468789, 87255239]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageObservableTask.swift": [1714468789, 85150003]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageReference.swift": [1714468789, 87453365]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageTask.swift": [1714468789, 85654735]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageTaskSnapshot.swift": [1714468789, 84963083]
+  "/Users/h8k/Documents/swift/projects/Trackizer/Pods/FirebaseStorage/FirebaseStorage/Sources/StorageUploadTask.swift": [1714468789, 87114095]
