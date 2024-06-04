@@ -548,3 +548,89 @@ extension CategorieCell {
           progressLayer?.add(animation, forKey: "progressAnim")
       }
 }
+
+extension ExpenseCell {
+    func createStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
+        let sv = UIStackView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.axis = axis
+        sv.spacing = 0
+        sv.distribution = .equalSpacing
+        return sv
+    }
+}
+
+extension IncomeCell {
+    func createStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
+        let sv = UIStackView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.axis = axis
+        sv.spacing = 0
+        sv.distribution = .equalSpacing
+        return sv
+    }
+}
+
+extension IncomeViewController {
+    
+    func createButton(selector: Selector) -> UIButton {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setImage(UIImage(named: "addIcon"), for: .normal)
+        btn.addTarget(self, action: selector, for: .touchUpInside)
+        btn.tintColor = .systemGray
+        btn.layer.cornerRadius = 15
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.darkGray.cgColor
+        
+        btn.setTitle("Add new income", for: .normal)
+            
+            NSLayoutConstraint.activate([
+                btn.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 11),
+            ])
+        
+        return btn
+        }
+        
+    }
+
+extension AddNewIncomeViewController {
+    func createStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
+        let sv = UIStackView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.axis = axis
+        sv.spacing = 20
+        
+        return sv
+    }
+    
+    func createTextField(placeholder: String) -> UITextField {
+        let tf = UITextField()
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        tf.backgroundColor = .clear
+        tf.layer.borderWidth = 1
+        tf.layer.cornerRadius = 20
+        tf.layer.borderColor = GrayColors.gray70.OWColor.cgColor
+        tf.placeholder = placeholder
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        tf.leftView = paddingView
+        tf.leftViewMode = .always
+            
+        return tf
+    }
+    
+   
+    
+    func createButton(selector: Selector) -> UIButton {
+        let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.setTitle("Add new category", for: .normal)
+        btn.tintColor = .systemGray
+        btn.layer.cornerRadius = 15
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.darkGray.cgColor
+        btn.addTarget(self, action: selector, for: .touchUpInside)
+        return btn
+    }
+}

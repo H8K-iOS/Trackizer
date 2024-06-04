@@ -28,21 +28,22 @@ private extension MainTabarController {
                                            icon: #imageLiteral(resourceName: "Budgets.png")),
                            generateVC(for: IncomeViewController(), title: "Income",
                                            icon: #imageLiteral(resourceName: "Credit Cards")),
-                           generateVC(for: CalendarViewController(), title: "Calendar",
+                           generateVC(for: StatsViewController(), title: "Stats",
                                            icon: #imageLiteral(resourceName: "Calendar.png"))
         ]
         
     }
     
     func generateVC(for vc: UIViewController, title: String, icon: UIImage?) -> UIViewController {
-        let nav = UINavigationController(rootViewController: vc)
+        
         vc.tabBarItem.image = icon
         vc.tabBarItem.title = title
-        return nav
+        return vc
     }
     
     private func drawTabBar() {
         tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
         tabBar.backgroundColor = .clear
         tabBar.tintColor = AccentPrimarySection.accentP50.OWColor
         let posX: CGFloat = 10

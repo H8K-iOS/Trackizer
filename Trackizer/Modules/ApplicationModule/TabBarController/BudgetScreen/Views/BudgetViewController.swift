@@ -2,11 +2,6 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
-enum CategoryName: String {
-    case autoTransport = "Auto/transport"
-    case security = "Security"
-    case entertainment = "Entertainment"
-}
 
 final class BudgetViewController: UIViewController {
     //MARK: - Constants
@@ -17,6 +12,8 @@ final class BudgetViewController: UIViewController {
     private var refreshControl = UIRefreshControl()
     let container = UIView()
     
+    private let noCategoryContainer = UIView()
+    private let imageView = UIImageView()
     
     
     //MARK: - Variables
@@ -49,8 +46,8 @@ final class BudgetViewController: UIViewController {
      
         
         setBackground()
-        setupUI()
         setupRoundView()
+        setupUI()
         setupLayots()
         setupRoundViewProgressLayers()
         
@@ -58,17 +55,9 @@ final class BudgetViewController: UIViewController {
         tableView.dataSource = self
         
         setBudget()
+        fetchCategories()
         updateRoundView()
-        
-        
-        viewModel.fetchCategories { [weak self]categories, error in
-            if let categories = categories {
-                self?.viewModel.categories = categories
-                self?.tableView.reloadData()
-            } else if let error = error {
-                print(error)
-            }
-        }
+        checkData()
     }
     //MARK: ViewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
@@ -92,6 +81,7 @@ final class BudgetViewController: UIViewController {
     //TODO: -
     
     
+    
     @objc private func addCategoryButtonTapped() {
         
         present(AddNewCategoryViewController(), animated: true)
@@ -101,6 +91,14 @@ final class BudgetViewController: UIViewController {
     
     @objc private func userRightBarButtonTaped() {
        // present(UserViewController(), animated: true)
+    }
+    
+    func checkData() {
+        if viewModel.categories.isEmpty {
+            imageView.isHidden = false
+        } else {
+            imageView.isHidden = true
+        }
     }
     
     @objc private func check() {
@@ -115,15 +113,9 @@ final class BudgetViewController: UIViewController {
     }
     
     @objc private func refreshData() {
-        self.viewModel.fetchCategories { categories, error in
-            if let categories = categories {
-                self.viewModel.categories = categories
-            } else if let error = error {
-                print(error)
-            }
-        }
-        
+        fetchCategories()
         updateRoundView()
+        checkData()
     }
     
     private func updateRoundView() {
@@ -135,6 +127,17 @@ final class BudgetViewController: UIViewController {
                 self?.updateUI()
             } else if let error {
                 AlertManager.ShowFetchingUserError(on: self ?? UIViewController(), with: error)
+            }
+        }
+    }
+    
+    private func fetchCategories() {
+        viewModel.fetchCategories { [weak self]categories, error in
+            if let categories {
+                self?.viewModel.categories = categories
+                self?.tableView.reloadData()
+            } else if let error = error {
+                print(error)
             }
         }
     }
@@ -155,6 +158,19 @@ private extension BudgetViewController {
         tableView.register(CategorieCell.self, forCellReuseIdentifier: CategorieCell.identifier)
         
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
+        
+        
+        
+        self.view.addSubview(noCategoryContainer)
+        noCategoryContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        noCategoryContainer.addSubview(imageView)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = #imageLiteral(resourceName: "opsImage.png")
+        imageView.contentMode = .scaleAspectFill
     }
     
     func setupLayots() {
@@ -168,6 +184,11 @@ private extension BudgetViewController {
             addCategoryButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 16),
             addCategoryButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             addCategoryButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            
+            imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.widthAnchor.constraint(equalToConstant: 200),
         ])
     }
     
@@ -195,8 +216,9 @@ extension BudgetViewController  {
         vStack.alignment = .center
         
         NSLayoutConstraint.activate([
-            container.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            
             container.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            container.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -Constants.screenHeight/4),
             container.widthAnchor.constraint(equalToConstant: 210),
             container.heightAnchor.constraint(equalToConstant: 120),
             
@@ -209,7 +231,7 @@ extension BudgetViewController  {
     func updateUI() {
         tableView.reloadData()
         refreshControl.endRefreshing()
-        
+        checkData()
         budgetLabel.text = "$\(categorySum?.rounded(toPlaces: 2) ?? 0)"
         budgetDescriptionLabel.text = "of $\(totalBudget?.rounded(toPlaces: 2) ?? 0) budget"
         check()

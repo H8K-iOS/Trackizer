@@ -167,5 +167,31 @@ final class AuthService {
                 }
             }
         }
-}
+    }
+    
+    func addNewIncome(incomeSourceName: String, date: String, amount: Double, completion: @escaping (Error?)->Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else {
+            completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let categoryRef = db.collection("users").document(userUID).collection("Incomes").document(incomeSourceName)
+        
+        categoryRef.getDocument { snapshot, error in
+            if let error {
+                completion(error)
+            } else{
+                categoryRef.setData([
+                "incomeSource": incomeSourceName,
+                "date": date,
+                "amount": amount
+                ]) { error in
+                    completion(error)
+                }
+            }
+                
+        }
+        
+    }
 }

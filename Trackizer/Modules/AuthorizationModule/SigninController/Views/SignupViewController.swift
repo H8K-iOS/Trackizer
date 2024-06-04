@@ -58,6 +58,8 @@ final class SignupViewController: UIViewController {
                          email: emailTextField.text ?? "",
                          password: passwordTextField.text ?? "",
                          vc: self)
+        
+        
     }
     
 }

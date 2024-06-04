@@ -1,20 +1,19 @@
 import UIKit
 import DGCharts
 
-
-//test comm for charts
-final class ExpenseViewController: UIViewController {
+final class IncomeViewController: UIViewController {
     //MARK: Constants
     private let tableView = UITableView()
     private var refreshControl = UIRefreshControl()
     private let pieChart = PieChartView()
-    private let viewModel: ExpenseViewModel
+    private let viewModel: IncomeViewModel
+    
     
     //MARK: Variables
-    
+    private lazy var addIncomeButton = createButton(selector: #selector(addIncomeButtonTapped))
     
     //MARK: Lifecycle
-    init(viewModel: ExpenseViewModel = ExpenseViewModel()) {
+    init(viewModel: IncomeViewModel = IncomeViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,7 +35,7 @@ final class ExpenseViewController: UIViewController {
         pieChart.delegate = self
         
         
-        fetchExpense()
+        fetchIncome()
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,10 +44,10 @@ final class ExpenseViewController: UIViewController {
     }
     //MARK: Methods
     
-    private func fetchExpense() {
-        self.viewModel.fetchExpense { [weak self] expense, error in
-            if let expense {
-                self?.viewModel.expense = expense
+    private func fetchIncome() {
+        self.viewModel.fetchIncome { [weak self] income, error in
+            if let income {
+                self?.viewModel.income = income
                 self?.updateUI()
             } else if let error {
                 AlertManager.ShowFetchingUserError(on: self ?? UIViewController(), with: error)
@@ -57,7 +56,11 @@ final class ExpenseViewController: UIViewController {
     }
     
     @objc private func refreshData() {
-        fetchExpense()
+        fetchIncome()
+    }
+    
+    @objc private func addIncomeButtonTapped() {
+        present(AddNewIncomeViewController(), animated: true)
     }
     
     func updateUI() {
@@ -67,7 +70,7 @@ final class ExpenseViewController: UIViewController {
 }
 
 //MARK: - Extensions
-private extension ExpenseViewController {
+private extension IncomeViewController {
     func setupPieChart() {
         
         pieChart.frame = CGRect(x: 0, y: 0,
@@ -103,43 +106,50 @@ private extension ExpenseViewController {
     
     func setupUI() {
         self.view.addSubview(tableView)
+        self.view.addSubview(addIncomeButton)
         tableView.addSubview(refreshControl)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        addIncomeButton.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
-        tableView.register(ExpenseCell.self, forCellReuseIdentifier: ExpenseCell.identifier)
+        tableView.register(IncomeCell.self, forCellReuseIdentifier: IncomeCell.identifier)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
     
     func setLayouts() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -Constants.screenHeight/9),
-        tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
-        tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
-        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
+            addIncomeButton.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -Constants.screenHeight/9),
+            addIncomeButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            addIncomeButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            
+            
+            tableView.topAnchor.constraint(equalTo: addIncomeButton.bottomAnchor, constant: 16),
+            tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
         ])
     }
 }
 
-extension ExpenseViewController: UITableViewDelegate {
+extension IncomeViewController: UITableViewDelegate {
     //
     
 }
 
-extension ExpenseViewController: UITableViewDataSource {
+extension IncomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.expense.count)
+        print(viewModel.income.count)
         return viewModel.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ExpenseCell.identifier, for: indexPath) as? ExpenseCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: IncomeCell.identifier, for: indexPath) as? IncomeCell else {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
         cell.selectedBackgroundView = .none
         
-        let expense = viewModel.expense[indexPath.row]
-        cell.configCell(with: expense)
+        let income = viewModel.income[indexPath.row]
+        cell.configCell(with: income)
         return cell
     }
     
@@ -147,14 +157,14 @@ extension ExpenseViewController: UITableViewDataSource {
 }
 
 
-extension ExpenseViewController: ChartViewDelegate {
+extension IncomeViewController: ChartViewDelegate {
     //
 }
 
 
-extension ExpenseViewController {
+extension IncomeViewController {
     func setExpense() {
-        self.viewModel.onExpenseUpdate = { [weak self] in
+        self.viewModel.onIncomeUpdate = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()

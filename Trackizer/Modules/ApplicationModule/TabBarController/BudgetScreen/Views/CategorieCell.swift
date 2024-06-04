@@ -2,7 +2,7 @@ import UIKit
 
 final class CategorieCell: UITableViewCell {
     // MARK: - Constants
-    static let identifier = "CategorieCell"
+    public static let identifier = "CategorieCell"
     
     private let blurEffect = UIBlurEffect(style: .dark)
     private let blurContainer: UIVisualEffectView = {
@@ -60,28 +60,28 @@ final class CategorieCell: UITableViewCell {
     // MARK: - Methods
     public func configCell(with budget: BudgetModel) {
         self.budget = budget
-            self.categoryNameLabel.text = budget.categoryName
-            
-            self.spendsLabel.text = "$\(budget.categorySpent)"
-            self.currentCategoryValue = budget.categorySpent
-            
-            self.totalSpendsLabel.text = "$\(budget.categoryTotalValue)"
-            self.totalBudgetForCategory = budget.categoryTotalValue
+        self.categoryNameLabel.text = budget.categoryName
         
-           
+        self.spendsLabel.text = "$\(budget.categorySpent)"
+        self.currentCategoryValue = budget.categorySpent
         
-            
-            if let currentCategoryValue = currentCategoryValue, let totalBudgetForCategory = totalBudgetForCategory, currentCategoryValue > totalBudgetForCategory {
-                self.spendsLabel.textColor = .systemOrange
-                self.leftToSpendLabel.text = "you exceeded the limit by $\(abs(budget.leftToSpend ?? 0))"
-                self.leftToSpendLabel.font = .systemFont(ofSize: 12)
-            } else {
-                self.spendsLabel.textColor = .white
-                self.leftToSpendLabel.text = "$\(budget.leftToSpend ?? 0) left to spend"
-                self.leftToSpendLabel.font = .systemFont(ofSize: 14)
-            }
-            
-            updateProgressLayer()
+        self.totalSpendsLabel.text = "$\(budget.categoryTotalValue)"
+        self.totalBudgetForCategory = budget.categoryTotalValue
+        
+        
+        
+        
+        if let currentCategoryValue = currentCategoryValue, let totalBudgetForCategory = totalBudgetForCategory, currentCategoryValue > totalBudgetForCategory {
+            self.spendsLabel.textColor = .systemOrange
+            self.leftToSpendLabel.text = "you exceeded the limit by $\(abs(budget.leftToSpend ?? 0))"
+            self.leftToSpendLabel.font = .systemFont(ofSize: 12)
+        } else {
+            self.spendsLabel.textColor = .white
+            self.leftToSpendLabel.text = "$\(budget.leftToSpend ?? 0) left to spend"
+            self.leftToSpendLabel.font = .systemFont(ofSize: 14)
+        }
+        
+        updateProgressLayer()
     }
     
     private func updateProgressLayer() {
@@ -93,22 +93,6 @@ final class CategorieCell: UITableViewCell {
             
             startAnimation(currentSum: currentCategoryValue ?? 0.0, total: totalBudgetForCategory ?? 0.0)
         }
-    
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        self.categoryNameLabel.text = nil
-//        self.spendsLabel.text = nil
-//        self.totalSpendsLabel.text = nil
-//        
-//        self.currentCategoryValue = nil
-//        self.totalBudgetForCategory = nil
-//        
-//        backgroundLayer?.removeFromSuperlayer()
-//        progressLayer?.removeFromSuperlayer()
-//        
-//        backgroundLayer = nil
-//        progressLayer = nil
-//    }
 }
 
 // MARK: - Extensions
@@ -182,11 +166,12 @@ private extension CategorieCell {
     }
     
     func setupRoundViewProgressLayers() {
-          let backgroundLayer = configBackgroundLayer()
-          container.layer.addSublayer(backgroundLayer)
-          self.backgroundLayer = backgroundLayer
-          
-          let progressLayer = configProgressLayer(color: budget.color)
-          container.layer.insertSublayer(progressLayer, above: backgroundLayer)
-          self.progressLayer = progressLayer
-      }}
+        let backgroundLayer = configBackgroundLayer()
+        container.layer.addSublayer(backgroundLayer)
+        self.backgroundLayer = backgroundLayer
+        
+        let progressLayer = configProgressLayer(color: budget.color)
+        container.layer.insertSublayer(progressLayer, above: backgroundLayer)
+        self.progressLayer = progressLayer
+    }
+}
