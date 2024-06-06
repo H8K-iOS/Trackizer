@@ -15,7 +15,7 @@ final class CategorieCell: UITableViewCell {
         view.clipsToBounds = true
         return view
     }()
-    private let categoryImageView = UIImageView()
+    private let categoryIcon = UILabel()
     private let categoryNameLabel = UILabel()
     private let leftToSpendLabel = UILabel()
     private let spendsLabel = UILabel()
@@ -68,7 +68,7 @@ final class CategorieCell: UITableViewCell {
         self.totalSpendsLabel.text = "$\(budget.categoryTotalValue)"
         self.totalBudgetForCategory = budget.categoryTotalValue
         
-        
+        self.categoryIcon.text = budget.icon
         
         
         if let currentCategoryValue = currentCategoryValue, let totalBudgetForCategory = totalBudgetForCategory, currentCategoryValue > totalBudgetForCategory {
@@ -102,11 +102,11 @@ private extension CategorieCell {
         blurContainer.effect = blurEffect
         
         self.addSubview(totalHStack)
-        self.addSubview(categoryImageView)
+        self.addSubview(categoryIcon)
         self.addSubview(container)
         container.translatesAutoresizingMaskIntoConstraints = false
         totalHStack.translatesAutoresizingMaskIntoConstraints = false
-        categoryImageView.translatesAutoresizingMaskIntoConstraints = false
+        categoryIcon.translatesAutoresizingMaskIntoConstraints = false
         
         labelsVStack.addArrangedSubview(categoryNameLabel)
         labelsVStack.addArrangedSubview(leftToSpendLabel)
@@ -136,8 +136,8 @@ private extension CategorieCell {
         totalSpendsLabel.textColor = GrayColors.gray30.OWColor
         totalSpendsLabel.font = .systemFont(ofSize: 14)
         
-        categoryImageView.image = #imageLiteral(resourceName: "Security.png")
-        categoryImageView.contentMode = .scaleAspectFit
+        categoryIcon.font = .systemFont(ofSize: 30)
+        categoryIcon.textAlignment = .center
         
         container.backgroundColor = .clear
         
@@ -149,15 +149,13 @@ private extension CategorieCell {
             blurContainer.rightAnchor.constraint(equalTo: self.rightAnchor),
             blurContainer.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
             
-            categoryImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
-            categoryImageView.centerYAnchor.constraint(equalTo: totalHStack.centerYAnchor),
-            categoryImageView.widthAnchor.constraint(equalToConstant: 32),
-            categoryImageView.heightAnchor.constraint(equalToConstant: 32),
+            categoryIcon.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
+            categoryIcon.centerYAnchor.constraint(equalTo: blurContainer.centerYAnchor, constant: -12),
             
             totalHStack.topAnchor.constraint(equalTo: blurContainer.topAnchor, constant: 16),
             totalHStack.rightAnchor.constraint(equalTo: blurContainer.rightAnchor, constant: -20),
             totalHStack.bottomAnchor.constraint(equalTo: blurContainer.bottomAnchor, constant: -20),
-            totalHStack.leftAnchor.constraint(equalTo: categoryImageView.rightAnchor, constant: 15),
+            totalHStack.leftAnchor.constraint(equalTo: categoryIcon.rightAnchor, constant: 15),
             
             container.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 22),
             container.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -22),

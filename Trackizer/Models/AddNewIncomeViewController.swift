@@ -26,11 +26,14 @@ final class AddNewIncomeViewController: UIViewController {
     
     
     
-    private lazy var totalBudgetTextField = createTextField(placeholder: "Budget for category")
+    private lazy var totalBudgetTextField = createTextField(placeholder: "Income amount")
     private lazy var textFieldVStack = createStackView(axis: .vertical)
     
     //MARK: Variables
     private lazy var continueButton = createButton(selector: #selector(continueButtonTapped))
+    
+
+    
     
     //MARK: lifecycle
     init(_ viewModel: IncomeViewModel = IncomeViewModel()) {
@@ -73,13 +76,6 @@ final class AddNewIncomeViewController: UIViewController {
             }
         }
     }
- 
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
     
     @objc private func closeButtonTapped() {
         self.dismiss(animated: true)
@@ -88,6 +84,8 @@ final class AddNewIncomeViewController: UIViewController {
     @objc private func pickButtonTapped() {
         dropDownMenu.show()
     }
+    
+
 }
 
 //MARK: - Extensions
@@ -162,12 +160,9 @@ private extension AddNewIncomeViewController {
             
             continueButton.heightAnchor.constraint(equalToConstant: Constants.screenHeight/15)
             
+            
+            
         ])
-        
-        
-        
-      
-
     }
 }
 

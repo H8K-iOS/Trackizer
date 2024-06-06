@@ -2,6 +2,9 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
+protocol AddNewCategoryViewControllerDelegate: AnyObject {
+    func didAddNewCategory(_ category: BudgetModel)
+}
 
 final class BudgetViewController: UIViewController {
     //MARK: - Constants
@@ -11,6 +14,12 @@ final class BudgetViewController: UIViewController {
     private var totalBudget: Double? = 0
     private var refreshControl = UIRefreshControl()
     let container = UIView()
+    private let buttonHStack: UIStackView = {
+        let hs = UIStackView()
+        hs.axis = .horizontal
+        hs.spacing = 10
+        return hs
+    }()
     
     private let noCategoryContainer = UIView()
     private let imageView = UIImageView()
@@ -22,7 +31,10 @@ final class BudgetViewController: UIViewController {
                                                type: .budget)
     private lazy var budgetDescriptionLabel = createLabel(of: totalBudget,
                                                           type: .description)
-    private lazy var userButtonSize = UIScreen.main.bounds.height / 20
+    
+    private lazy var updateButton = createRoundButton(imageName: "arrow.triangle.2.circlepath", selector: #selector(updateButtonTapped))
+    private lazy var userButton = createRoundButton(imageName: "person.fill", selector: #selector(userButtonTapped))
+    
     private var categorySum: Double? = 0
     
     var backgroundLayer: CAShapeLayer?
@@ -44,26 +56,25 @@ final class BudgetViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         //TODO: -
      
-        
+        setBudget()
         setBackground()
         setupRoundView()
         setupUI()
         setupLayots()
+        fetchCategories()
         setupRoundViewProgressLayers()
+        checkData()
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        setBudget()
-        fetchCategories()
-        updateRoundView()
-        checkData()
     }
     //MARK: ViewDidLayoutSubviews
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         backgroundLayer?.path = configProgressPath()
         progressLayer?.path = configProgressPath()
+        
+        refreshData()
     }
     
     //MARK: viewWillAppear
@@ -77,20 +88,18 @@ final class BudgetViewController: UIViewController {
     }
     
     //MARK: - Methods
-    
-    //TODO: -
-    
-    
-    
     @objc private func addCategoryButtonTapped() {
-        
-        present(AddNewCategoryViewController(), animated: true)
-        
-        
+        let addNewCategoryVC = AddNewCategoryViewController()
+        addNewCategoryVC.delegate = self
+        present(addNewCategoryVC, animated: true)
     }
     
-    @objc private func userRightBarButtonTaped() {
-       // present(UserViewController(), animated: true)
+    @objc private func userButtonTapped() {
+        present(UserViewController(), animated: true)
+    }
+    
+    @objc private func updateButtonTapped() {
+        refreshData()
     }
     
     func checkData() {
@@ -107,8 +116,10 @@ final class BudgetViewController: UIViewController {
         
         if categorySum > total {
             budgetLabel.textColor = .red
+            progressLayer?.strokeColor = UIColor.red.cgColor
         } else {
             budgetLabel.textColor = .white
+            progressLayer?.strokeColor = UIColor.white.cgColor
         }
     }
     
@@ -120,7 +131,8 @@ final class BudgetViewController: UIViewController {
     
     private func updateRoundView() {
         self.viewModel.fetchCategorySpending { [weak self] categorySpending, error in
-            if let categorySpending {
+            if categorySpending != nil {
+                
                 self?.startAnimation(progress: self?.categorySum ?? 0, total: self?.totalBudget ?? 0.0 )
                 self?.categorySum = self?.viewModel.calculateTotalSpending()
                 self?.totalBudget = self?.viewModel.calculateTotalBudget()
@@ -146,40 +158,47 @@ final class BudgetViewController: UIViewController {
     //MARK: - VC UI
 private extension BudgetViewController {
     func setupUI() {
-        self.view.addSubview(tableView)
+        
         self.view.addSubview(addCategoryButton)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(updateButton)
+        updateButton.translatesAutoresizingMaskIntoConstraints = false
         addCategoryButton.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.addSubview(refreshControl)
+        self.view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.register(CategorieCell.self, forCellReuseIdentifier: CategorieCell.identifier)
         
+        tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        
-        
-        
         
         self.view.addSubview(noCategoryContainer)
         noCategoryContainer.translatesAutoresizingMaskIntoConstraints = false
         
-        
         noCategoryContainer.addSubview(imageView)
-        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = #imageLiteral(resourceName: "opsImage.png")
         imageView.contentMode = .scaleAspectFill
+        
+        self.view.addSubview(buttonHStack)
+        buttonHStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        buttonHStack.addArrangedSubview(userButton)
+        buttonHStack.addArrangedSubview(updateButton)
+        
     }
     
     func setupLayots() {
         NSLayoutConstraint.activate([
-
             tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
             tableView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.65),
-            tableView.topAnchor.constraint(equalTo: container.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: container.bottomAnchor, constant: 16),
+            
+            buttonHStack.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            buttonHStack.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10),
             
             addCategoryButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 16),
             addCategoryButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
@@ -254,18 +273,22 @@ extension BudgetViewController  {
 //MARK: - Table View
 extension BudgetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: false)
-        let budget = self.viewModel.categories[indexPath.row]
-        let vm = AddSpendsViewModel(budget)
-        let vc = AddSpendsViewController(vm)
-        self.present(vc, animated: true)
-    }
+           self.tableView.deselectRow(at: indexPath, animated: false)
+           let budget = self.viewModel.categories[indexPath.row]
+           let vm = AddSpendsViewModel(budget)
+           
+           let onUpdate: () -> Void = { [weak self] in
+               self?.didAddNewSpending()
+           }
+           
+        let vc = AddSpendsViewController(vm, onUpdate: onUpdate)
+           self.present(vc, animated: true)
+       }
 }
 
 extension BudgetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.categories.count)
         
         return viewModel.categories.count
     }
@@ -290,9 +313,27 @@ extension BudgetViewController {
     func setBudget() {
         self.viewModel.onBudgetUpdate = { [weak self] in
             DispatchQueue.main.async {
+                
                 self?.tableView.reloadData()
                 self?.refreshControl.endRefreshing()
             }
         }
+    }
+}
+
+extension BudgetViewController: AddNewCategoryViewControllerDelegate {
+    func didAddNewCategory(_ category: BudgetModel) {
+        viewModel.categories.append(category)
+        tableView.reloadData()
+        updateRoundView()
+        checkData()
+    }
+}
+
+extension BudgetViewController {
+    func didAddNewSpending() {
+        fetchCategories()
+        updateRoundView()
+        checkData()
     }
 }

@@ -17,8 +17,8 @@
 		8C1F198E2BF3B243002513D8 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F198D2BF3B243002513D8 /* SigninViewController.swift */; };
 		8C4565C52C051A6D003710A7 /* AddSpendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4565C42C051A6D003710A7 /* AddSpendsViewModel.swift */; };
 		8C4F6FBE2BF601C800FE7957 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F6FBD2BF601C800FE7957 /* ExpenseModel.swift */; };
-		8C4F6FC12BF608D600FE7957 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F6FC02BF608D600FE7957 /* UserViewController.swift */; };
 		8C659C9C2C088A59002FBB23 /* AddNewCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C659C9B2C088A59002FBB23 /* AddNewCategoryViewModel.swift */; };
+		8C766A072C11E1B9008E3724 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C766A062C11E1B9008E3724 /* UserViewController.swift */; };
 		8C85EA222BE3DA0F00832111 /* CategorieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85EA212BE3DA0F00832111 /* CategorieCell.swift */; };
 		8C8E6B332BE0F8370040977D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B322BE0F8370040977D /* AuthService.swift */; };
 		8C8E6B372BE0F9FC0040977D /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B362BE0F9FC0040977D /* AuthModel.swift */; };
@@ -66,8 +66,8 @@
 		8C1F198D2BF3B243002513D8 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		8C4565C42C051A6D003710A7 /* AddSpendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendsViewModel.swift; sourceTree = "<group>"; };
 		8C4F6FBD2BF601C800FE7957 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
-		8C4F6FC02BF608D600FE7957 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		8C659C9B2C088A59002FBB23 /* AddNewCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryViewModel.swift; sourceTree = "<group>"; };
+		8C766A062C11E1B9008E3724 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		8C85EA212BE3DA0F00832111 /* CategorieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorieCell.swift; sourceTree = "<group>"; };
 		8C8E6B322BE0F8370040977D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8C8E6B362BE0F9FC0040977D /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
@@ -169,20 +169,20 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		8C4F6FBF2BF608C100FE7957 /* UserSceen */ = {
-			isa = PBXGroup;
-			children = (
-				8C4F6FC02BF608D600FE7957 /* UserViewController.swift */,
-			);
-			path = UserSceen;
-			sourceTree = "<group>";
-		};
 		8C659C9A2C088A3A002FBB23 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				8C659C9B2C088A59002FBB23 /* AddNewCategoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8C766A052C11E1AA008E3724 /* UserScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8C766A062C11E1B9008E3724 /* UserViewController.swift */,
+			);
+			path = UserScreen;
 			sourceTree = "<group>";
 		};
 		8C8E6B342BE0F8600040977D /* to-name */ = {
@@ -289,6 +289,7 @@
 				8CC62D622BCD21DE0002196D /* BudgetScreen */,
 				8CC62D732BCD24DB0002196D /* ExpenseScreen */,
 				8C9297222BE7B648004FE8E1 /* IncomeScreen */,
+				8CC62D742BCD252E0002196D /* Stats */,
 			);
 			path = TabBarController;
 			sourceTree = "<group>";
@@ -296,9 +297,9 @@
 		8CC62D622BCD21DE0002196D /* BudgetScreen */ = {
 			isa = PBXGroup;
 			children = (
+				8C766A052C11E1AA008E3724 /* UserScreen */,
 				8CC62D632BCD21EB0002196D /* Views */,
 				8CC62D642BCD21F30002196D /* ViewModels */,
-				8C4F6FBF2BF608C100FE7957 /* UserSceen */,
 				8C1F19842BEB987B002513D8 /* AddNewCategory */,
 				8C1F19802BEAE254002513D8 /* AddSpendsScreen */,
 			);
@@ -381,7 +382,6 @@
 			isa = PBXGroup;
 			children = (
 				8CC62D612BCD21D00002196D /* TabBarController */,
-				8CC62D742BCD252E0002196D /* Stats */,
 			);
 			path = ApplicationModule;
 			sourceTree = "<group>";
@@ -654,7 +654,6 @@
 				8CC62D4E2BCD219F0002196D /* SceneDelegate.swift in Sources */,
 				8CDACA092BDB9E3000BADFC9 /* PasswordResetController.swift in Sources */,
 				8C1F19862BEB9896002513D8 /* AddNewCategoryViewController.swift in Sources */,
-				8C4F6FC12BF608D600FE7957 /* UserViewController.swift in Sources */,
 				8C1F197D2BE82D98002513D8 /* OtherExtensions.swift in Sources */,
 				8CB8550D2C0F317400B44FAD /* IncomeViewModel.swift in Sources */,
 				8C1F19892BF356CE002513D8 /* BudgetModel.swift in Sources */,
@@ -666,6 +665,7 @@
 				8C4F6FBE2BF601C800FE7957 /* ExpenseModel.swift in Sources */,
 				8C1F198B2BF35949002513D8 /* BudgetViewModel.swift in Sources */,
 				8CA2E1342BE3BBAE0093A0BA /* ExpenseViewController.swift in Sources */,
+				8C766A072C11E1B9008E3724 /* UserViewController.swift in Sources */,
 				8CB8550F2C0F31AA00B44FAD /* IncomeCell.swift in Sources */,
 				8CC62D812BCD32AD0002196D /* UIColor+Extensions.swift in Sources */,
 				8C9297242BE7B67A004FE8E1 /* IncomeViewController.swift in Sources */,

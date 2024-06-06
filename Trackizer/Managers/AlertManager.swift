@@ -106,13 +106,26 @@ extension AlertManager {
 //MARK: - Add spends Errors
 extension AlertManager {
    
-   public static func showAddSpendsErrorAlert(on vc: UIViewController) {
-       self.showAlert(on: vc, title: "Invalid Spends Name/Spends Amount.", message: nil)
-   }
-   
-   public static func showAddSpendsErrorAlert(on vc: UIViewController, with error: Error) {
-       self.showAlert(on: vc, title: "Invalid Spends Name/Spends Amount.", message: "\(error.localizedDescription)")
-   }
+    public static func showAddSpendsErrorAlert(on vc: UIViewController) {
+        self.showAlert(on: vc, title: "Invalid Spends Name/Spends Amount.", message: nil)
+    }
+    
+    public static func showBudgetEditErrorAlert(on vc: UIViewController) {
+        self.showAlert(on: vc, title: "Invalid budget amount.", message: nil)
+    }
+    
+    public static func showAddSpendsErrorAlert(on vc: UIViewController, with error: Error) {
+        self.showAlert(on: vc, title: "Invalid Spends Name/Spends Amount.", message: "\(error.localizedDescription)")
+    }
 }
 
-
+//MARK: - Delete users error
+extension AlertManager {
+    public static func showDeleteExpenseErrorAlert(on vc: UIViewController) {
+        self.showAlert(on: vc, title: "Error deleting expense.", message: nil)
+    }
+    
+    public static func showDeleteExpenseErrorAlert(on vc: UIViewController, with error: Error) {
+        self.showAlert(on: vc, title: "IError deleting expense.", message: "\(error.localizedDescription)")
+    }
+}

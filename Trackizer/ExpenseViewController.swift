@@ -11,7 +11,7 @@ final class ExpenseViewController: UIViewController {
     private let viewModel: ExpenseViewModel
     
     //MARK: Variables
-    
+    private lazy var updateButton = createRoundButton(imageName: "arrow.triangle.2.circlepath", selector: #selector(updateButtonTapped))
     
     //MARK: Lifecycle
     init(viewModel: ExpenseViewModel = ExpenseViewModel()) {
@@ -26,7 +26,7 @@ final class ExpenseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        
+        fetchExpense()
         setBackground()
         setupUI()
         setLayouts()
@@ -36,7 +36,7 @@ final class ExpenseViewController: UIViewController {
         pieChart.delegate = self
         
         
-        fetchExpense()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,6 +64,10 @@ final class ExpenseViewController: UIViewController {
         tableView.reloadData()
         refreshControl.endRefreshing()
     }
+    
+    @objc private func updateButtonTapped() {
+        updateUI()
+    }
 }
 
 //MARK: - Extensions
@@ -87,18 +91,10 @@ private extension ExpenseViewController {
                                              y: Double(x)))
         }
         
-        
-        
         let set = PieChartDataSet(entries: entries)
         set.colors = ChartColorTemplates.colorful()
         let data = PieChartData(dataSet: set)
         pieChart.data = data
-        
-        NSLayoutConstraint.activate([
-        
-        
-        
-        ])
     }
     
     func setupUI() {
@@ -106,8 +102,12 @@ private extension ExpenseViewController {
         tableView.addSubview(refreshControl)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         tableView.register(ExpenseCell.self, forCellReuseIdentifier: ExpenseCell.identifier)
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
+        self.view.addSubview(updateButton)
+        updateButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setLayouts() {
@@ -115,19 +115,34 @@ private extension ExpenseViewController {
             tableView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -Constants.screenHeight/9),
         tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
         tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
-        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
+        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            
+            updateButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            updateButton.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10),
         ])
     }
 }
 
 extension ExpenseViewController: UITableViewDelegate {
-    //
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle ,forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let spendName = viewModel.expense[indexPath.row].spendsName
+        
+        viewModel.deleteExpense(expenseName: spendName) { [weak self] error in
+            if let error {
+                AlertManager.showDeleteExpenseErrorAlert(on: self ?? UIViewController(), with: error)
+            }
+  
+        }
+        
+        self.viewModel.expense.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
     
 }
 
 extension ExpenseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.expense.count)
         return viewModel.numberOfRows()
     }
     
@@ -143,8 +158,13 @@ extension ExpenseViewController: UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .delete
+    }
+   
 }
+
+
 
 
 extension ExpenseViewController: ChartViewDelegate {

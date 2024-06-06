@@ -2,6 +2,8 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
+
+
 final class BudgetViewModel {
     
     var onBudgetUpdate: (()->Void)?
@@ -14,7 +16,7 @@ final class BudgetViewModel {
     private var categoriesSource: [String: Double] = [:]
     private var categoryBudgetSource: [String: Double] = [:]
     init(){
-      
+        
         
     }
     
@@ -51,37 +53,37 @@ final class BudgetViewModel {
     
     
     
-func fetchCategorySpending(completion: @escaping([String: Double]?, Error?) -> Void) {
-    guard let userUID = Auth.auth().currentUser?.uid else {
-        completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
-        return
-    }
-    
-    let db = Firestore.firestore()
-    db.collection("users").document(userUID).collection("Category").getDocuments { snapshot, error in
-        if let error {
-            print("Error fetching category spending: \(error)")
-            completion(nil, error)
+    func fetchCategorySpending(completion: @escaping([String: Double]?, Error?) -> Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else {
+            completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
             return
         }
         
-        var categorySpending = [String: Double]()
-        var categoryBudget = [String: Double]()
-        snapshot?.documents.forEach{ document in
-            let categortyName = document["categoryName"] as? String ?? ""
-            let moneySpent = document["moneySpent"] as? Double ?? 0.0
-            let budget = document["total"] as? Double ?? 0.0
-            categorySpending[categortyName] = moneySpent
-            categoryBudget[categortyName] = budget
-            self.categoriesSource = categorySpending
-            self.categoryBudgetSource = categoryBudget
+        let db = Firestore.firestore()
+        db.collection("users").document(userUID).collection("Category").getDocuments { snapshot, error in
+            if let error {
+                print("Error fetching category spending: \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            var categorySpending = [String: Double]()
+            var categoryBudget = [String: Double]()
+            snapshot?.documents.forEach{ document in
+                let categortyName = document["categoryName"] as? String ?? ""
+                let moneySpent = document["moneySpent"] as? Double ?? 0.0
+                let budget = document["total"] as? Double ?? 0.0
+                categorySpending[categortyName] = moneySpent
+                categoryBudget[categortyName] = budget
+                self.categoriesSource = categorySpending
+                self.categoryBudgetSource = categoryBudget
+            }
+            completion(categorySpending, nil)
+            
         }
-        completion(categorySpending, nil)
-        
     }
-}
     
-    
+
     
     func leftToSpend(total: Double?, currentValue: Double?) -> Double? {
         guard let totalBudgetForCategory = total,

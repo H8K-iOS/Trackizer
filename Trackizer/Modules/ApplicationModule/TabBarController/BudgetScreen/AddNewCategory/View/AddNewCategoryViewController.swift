@@ -24,7 +24,7 @@ final class AddNewCategoryViewController: UIViewController {
     private let categoryPickerPickButton = UIButton()
     private let dropDownMenu = DropDown()
     
-    
+    weak var delegate: AddNewCategoryViewControllerDelegate?
     
     private lazy var totalBudgetTextField = createTextField(placeholder: "Budget for category")
     private lazy var textFieldVStack = createStackView(axis: .vertical)
@@ -63,21 +63,16 @@ final class AddNewCategoryViewController: UIViewController {
                 AlertManager.showAddCategoryErrorAlert(on: self)
                 return
             }
-    
+        
         viewModel.addCategory(categoryName: categoryText, categoryBudget: value) { [weak self] error in
             if let error {
                 AlertManager.showAddCategoryErrorAlert(on: self ?? UIViewController())
             } else {
+                let newCategory = BudgetModel(categoryName: categoryText, categoryTotalValue: value, categorySpent: 0.0, leftToSpend: value, color: .white, icon: "")
+                self?.delegate?.didAddNewCategory(newCategory)
                 self?.dismiss(animated: true, completion: nil)
             }
         }
-    }
- 
-
-    private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
     
     @objc private func closeButtonTapped() {

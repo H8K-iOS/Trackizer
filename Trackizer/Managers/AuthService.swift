@@ -5,7 +5,7 @@ import FirebaseFirestore
 
 final class AuthService {
     public static let shared = AuthService()
-    private let dataBase = Firestore.firestore()
+    private let db = Firestore.firestore()
     
     private init() {}
     
@@ -41,7 +41,7 @@ final class AuthService {
                 "password": password
             ]
             
-            let userCollectionRef = self.dataBase.collection("users")
+            let userCollectionRef = self.db.collection("users")
             
             userCollectionRef.document(resultUser.uid).setData(userData) { error in
                 if let error = error {
@@ -93,7 +93,6 @@ final class AuthService {
             return
         }
         
-        let db = Firestore.firestore()
         let categoryRef = db.collection("users").document(userUID).collection("Category").document(categoryName)
         
         categoryRef.getDocument { document, error in
@@ -122,7 +121,6 @@ final class AuthService {
                 return
             }
             
-            let db = Firestore.firestore()
             let categoryRef = db.collection("users").document(userUID).collection("Category").document(categoryName)
             
             categoryRef.getDocument { document, error in
@@ -148,8 +146,7 @@ final class AuthService {
             completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
             return
         }
-        
-        let db = Firestore.firestore()
+    
         let categoryRef = db.collection("users").document(userUID).collection("Spends").document(spendsName)
         
         categoryRef.getDocument { document, error in
@@ -174,8 +171,7 @@ final class AuthService {
             completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
             return
         }
-        
-        let db = Firestore.firestore()
+
         let categoryRef = db.collection("users").document(userUID).collection("Incomes").document(incomeSourceName)
         
         categoryRef.getDocument { snapshot, error in
@@ -193,5 +189,24 @@ final class AuthService {
                 
         }
         
+    }
+    
+    func editCategoryBudget(categoryName:  String, budget: Double, completion: @escaping(Error?)-> Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else {
+            completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+            return
+        }
+        let  categoryRef = db.collection("users").document(userUID).collection("Category").document(categoryName)
+        
+        categoryRef.getDocument { document, error in
+            if let document = document, document.exists {
+                categoryRef.updateData([
+                    "total": budget
+                ]) { error in
+                    completion(error)
+                }
+            
+            }
+        }
     }
 }

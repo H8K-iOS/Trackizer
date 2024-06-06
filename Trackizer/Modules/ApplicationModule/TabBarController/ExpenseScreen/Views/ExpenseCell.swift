@@ -97,7 +97,7 @@ private extension ExpenseCell {
             
             hStack.leftAnchor.constraint(equalTo: blurContainer.leftAnchor, constant: 16),
             hStack.rightAnchor.constraint(equalTo: blurContainer.rightAnchor, constant: -16),
-            hStack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            hStack.centerYAnchor.constraint(equalTo: blurContainer.centerYAnchor),
         ])
     }
     

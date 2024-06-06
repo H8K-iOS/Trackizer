@@ -51,6 +51,26 @@ extension UIViewController {
             navigationController.popToRootViewController(animated: true)
         }
     }
+    
+    func createRoundButton(imageName: String, selector: Selector) -> UIButton{
+        let btn = UIButton()
+        btn.setImage(UIImage(systemName: imageName)?.withRenderingMode(.alwaysTemplate),
+                     for: .normal)
+        btn.contentVerticalAlignment = .center
+        btn.contentHorizontalAlignment = .center
+        btn.tintColor = .white
+        btn.backgroundColor = .clear
+        btn.layer.cornerRadius = 25
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        btn.addTarget(self, action: selector, for: .touchUpInside)
+       
+        return btn
+    }
+
 }
 
 //MARK: - Sign Up ViewController
@@ -365,7 +385,6 @@ extension BudgetViewController {
     }
     
     
-    
     //MARK: - Progress View Layer
     func configBackgroundLayer() -> CAShapeLayer {
             let bgLayer = CAShapeLayer()
@@ -592,6 +611,8 @@ extension IncomeViewController {
         return btn
         }
         
+    
+
     }
 
 extension AddNewIncomeViewController {
@@ -633,4 +654,6 @@ extension AddNewIncomeViewController {
         btn.addTarget(self, action: selector, for: .touchUpInside)
         return btn
     }
+    
+
 }

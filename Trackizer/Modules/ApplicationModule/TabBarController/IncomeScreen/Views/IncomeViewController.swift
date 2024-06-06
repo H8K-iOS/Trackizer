@@ -7,10 +7,20 @@ final class IncomeViewController: UIViewController {
     private var refreshControl = UIRefreshControl()
     private let pieChart = PieChartView()
     private let viewModel: IncomeViewModel
+    private let buttonHStack: UIStackView = {
+        let hs = UIStackView()
+        hs.axis = .horizontal
+        hs.spacing = 10
+        return hs
+    }()
+    
+ 
     
     
     //MARK: Variables
-    private lazy var addIncomeButton = createButton(selector: #selector(addIncomeButtonTapped))
+    private lazy var updateButton = createRoundButton(imageName: "arrow.triangle.2.circlepath", selector: #selector(updateButtonTapped))
+    
+    private lazy var addIncomeButton = createRoundButton(imageName: "plus", selector: #selector(addIncomeButtonTapped))
     
     //MARK: Lifecycle
     init(viewModel: IncomeViewModel = IncomeViewModel()) {
@@ -67,6 +77,10 @@ final class IncomeViewController: UIViewController {
         tableView.reloadData()
         refreshControl.endRefreshing()
     }
+    
+    @objc private func updateButtonTapped() {
+        updateUI()
+    }
 }
 
 //MARK: - Extensions
@@ -106,26 +120,38 @@ private extension IncomeViewController {
     
     func setupUI() {
         self.view.addSubview(tableView)
-        self.view.addSubview(addIncomeButton)
+        
         tableView.addSubview(refreshControl)
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        addIncomeButton.translatesAutoresizingMaskIntoConstraints = false
+        
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         tableView.register(IncomeCell.self, forCellReuseIdentifier: IncomeCell.identifier)
+        
+        
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
+        self.view.addSubview(buttonHStack)
+        buttonHStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        buttonHStack.addArrangedSubview(addIncomeButton)
+        buttonHStack.addArrangedSubview(updateButton)
+        
+        
     }
     
     func setLayouts() {
         NSLayoutConstraint.activate([
-            addIncomeButton.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -Constants.screenHeight/9),
-            addIncomeButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            addIncomeButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            
-            
-            tableView.topAnchor.constraint(equalTo: addIncomeButton.bottomAnchor, constant: 16),
+            tableView.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -Constants.screenHeight/14),
             tableView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
+            tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
+            
+            buttonHStack.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            buttonHStack.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: -10),
+            buttonHStack.heightAnchor.constraint(equalToConstant: 50),
+          
         ])
     }
 }

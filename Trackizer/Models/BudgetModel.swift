@@ -11,9 +11,9 @@ struct BudgetModel {
     let categorySpent: Double
     let leftToSpend: Double
     let color: UIColor
-    let icon: UIImage
+    let icon: String
     
-    init(categoryName: String, categoryTotalValue: Double, categorySpent: Double, leftToSpend: Double, color: UIColor, icon: UIImage) {
+    init(categoryName: String, categoryTotalValue: Double, categorySpent: Double, leftToSpend: Double, color: UIColor, icon: String) {
         self.categoryName = categoryName
         self.categoryTotalValue = categoryTotalValue
         self.categorySpent = categorySpent
@@ -30,49 +30,49 @@ struct BudgetModel {
         let leftToSpend = categoryTotalValue - categorySpent
         
         let color: UIColor
-        let icon: UIImage
+        let icon: String
         switch categoryName {
         case "Security":
             color = AccentPrimarySection.accentP100.OWColor
-            icon = #imageLiteral(resourceName: "Security.png")
+            icon = "🔐"
         case "Auto":
             color = AccentSecondarySection.accentS50.OWColor
-            icon = #imageLiteral(resourceName: "Auto & Transport.png")
+            icon = "🚗"
             
         case "Entertainment":
             color = PrimarySection.primary100.OWColor
-            icon = #imageLiteral(resourceName: "Entertainment.png")
+            icon = "🥳"
         
         case "Medecine":
             color = PrimarySection.primary10.OWColor
-            icon = #imageLiteral(resourceName: "Entertainment.png")
+            icon = "💊"
        
         case "Restaurants":
             color = AccentPrimarySection.accentP0.OWColor
-            icon = #imageLiteral(resourceName: "Entertainment.png")
+            icon = "🍔"
         
         case "Grocceries":
             color = UIColor.green.withAlphaComponent(0.8)
-            icon = #imageLiteral(resourceName: "Entertainment.png")
+            icon = "🛒"
        
         case "Taxi":
             color = UIColor.yellow.withAlphaComponent(0.8)
-            icon = #imageLiteral(resourceName: "Entertainment.png")
+            icon = "🚕"
         
         case "Flowers":
             color = UIColor.systemPink.withAlphaComponent(0.8)
-            icon = #imageLiteral(resourceName: "Entertainment.png")
+            icon = "💐"
             
         case "Personal":
             color = UIColor.systemBrown.withAlphaComponent(0.8)
-            icon = #imageLiteral(resourceName: "Entertainment.png")
+            icon = "💵"
             
         case "Fashion":
             color = UIColor.red.withAlphaComponent(0.8)
-            icon = #imageLiteral(resourceName: "Entertainment.png")
+            icon = "👘"
         default:
             color = .white
-            icon = UIImage()
+            icon = String()
         }
         self.init(categoryName: categoryName, categoryTotalValue: categoryTotalValue, categorySpent: categorySpent, leftToSpend: leftToSpend, color: color, icon: icon)
     }
