@@ -20,14 +20,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     public func checkAunthentification() {
-        print("Checking authentication")
+        
         if Auth.auth().currentUser == nil {
-            // Go To Authentification Module
-            print("No user logged in, showing WelcomeScreen")
             self.goToController(with: WelcomeScreen())
         } else {
-            // Go To ApplicationModule
-            print("User logged in, showing MainTabarController")
             self.goToController(with: MainTabarController())
         }
     }

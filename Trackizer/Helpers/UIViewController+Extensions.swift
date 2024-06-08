@@ -60,12 +60,12 @@ extension UIViewController {
         btn.contentHorizontalAlignment = .center
         btn.tintColor = .white
         btn.backgroundColor = .clear
-        btn.layer.cornerRadius = 25
+        btn.layer.cornerRadius = 15
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.gray.withAlphaComponent(0.4).cgColor
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        btn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        btn.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 40).isActive = true
         btn.addTarget(self, action: selector, for: .touchUpInside)
        
         return btn

@@ -47,10 +47,9 @@ final class AuthService {
                 if let error = error {
                     completion(false, error)
                     return
+                } else {
+                    completion(true, nil)
                 }
-                
-               
-            
             }
         }
     }
@@ -62,8 +61,7 @@ final class AuthService {
                 completion(error)
                 return
             } else {
-
-               
+                completion(nil)
             }
         }
     }

@@ -8,7 +8,7 @@ enum State {
 final class AddSpendsViewController: UIViewController {
     //MARK: Constants
     private var state = State.add
-    private var onUpdate: (() -> Void)?
+    weak var delegate: AddNewSpendViewControllerDelegate?
     
     private let blurEffect = UIBlurEffect(style: .dark)
     private let blurContaienr: UIVisualEffectView = {
@@ -45,9 +45,9 @@ final class AddSpendsViewController: UIViewController {
     private lazy var continueButton = createButton(selector: #selector(continueButtonTapped))
     
     //MARK: lifecycle
-    init(_ viewModel: AddSpendsViewModel, onUpdate: (() -> Void)?) {
+    init(_ viewModel: AddSpendsViewModel) {
         self.viewModel = viewModel
-        self.onUpdate = onUpdate
+        
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .overFullScreen
     }
@@ -65,49 +65,15 @@ final class AddSpendsViewController: UIViewController {
         setupUI()
         displayCategoryInfo()
     }
-    //MARK: Methods
     
+    //MARK: Methods
     @objc func continueButtonTapped() {
         switch state {
         case .add:
-            guard let spendsName = spendNameTextField.text,
-                  let valueText = valueTextField.text,
-                  let value = Double(valueText) else {
-                AlertManager.showAddSpendsErrorAlert(on: self)
-                return
-            }
-            
-            let categoryName = viewModel.categoryName
-            
-            viewModel.updateCategorySpending(categoryName: categoryName, spendsName: spendsName, amount: value) { [weak self] error in
-                if let error {
-                    print("Failed to update category spending: ")
-                } else {
-                    self?.onUpdate?()
-                    self?.dismiss(animated: true, completion: nil)
-                }
-            }
-            
+            addNewSpends()
         case .edit:
-            guard let budget = totalBudgetTextField.text,
-                  let value = Double(budget) else {
-                AlertManager.showBudgetEditErrorAlert(on: self)
-                return
-            }
-            
-            let categoryName = viewModel.categoryName
-            
-            viewModel.updateCategoryBudget(categoryName: categoryName, budget: value) { [weak self] error in
-                if let error {
-                    print("Failed to update category budget: ")
-                } else {
-                    self?.dismiss(animated: true, completion: nil)
-                }
-            }
-            
-
+            updateBudget()
         }
- 
         
     }
     
@@ -133,6 +99,7 @@ final class AddSpendsViewController: UIViewController {
                 print("Error deleting category: \(error.localizedDescription)")
             } else {
                 DispatchQueue.main.async {
+                    self.delegate?.didAddNewSpending()
                     self.dismiss(animated: true)
                 }
             }
@@ -163,6 +130,45 @@ final class AddSpendsViewController: UIViewController {
             self.deleteButton.isHidden = false
             self.totalBudgetTextField.isHidden = false
             self.continueButton.setTitle("Edit budget", for: .normal)
+        }
+    }
+    
+    private func addNewSpends() {
+        guard let spendsName = spendNameTextField.text,
+              let valueText = valueTextField.text,
+              let value = Double(valueText) else {
+            AlertManager.showAddSpendsErrorAlert(on: self)
+            return
+        }
+        
+        let categoryName = viewModel.categoryName
+        
+        viewModel.updateCategorySpending(categoryName: categoryName, spendsName: spendsName, amount: value) { [weak self] error in
+            if error != nil {
+                print("Failed to update category spending: ")
+            } else {
+                self?.delegate?.didAddNewSpending()
+                self?.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    private func updateBudget() {
+        guard let budget = totalBudgetTextField.text,
+              let value = Double(budget) else {
+            AlertManager.showBudgetEditErrorAlert(on: self)
+            return
+        }
+        
+        let categoryName = viewModel.categoryName
+        
+        viewModel.updateCategoryBudget(categoryName: categoryName, budget: value) { [weak self] error in
+            if error != nil {
+                print("Failed to update category budget: ")
+            } else {
+                self?.delegate?.didAddNewSpending()
+                self?.dismiss(animated: true, completion: nil)
+            }
         }
     }
 }

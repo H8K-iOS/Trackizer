@@ -51,9 +51,18 @@ final class SigninViewController: UIViewController {
     }
     
     @objc private func signinButtonTapped() {
-        viewModel.signIn(email: emailTextField.text ?? "",
-                         password: passwordTextField.text ?? "",
-                         vc: self)
+        guard let email = emailTextField.text,
+        let password = passwordTextField.text else { return }
+        
+        viewModel.signIn(email: email, password: password, vc: self) { [weak self] error in
+            if let error {
+                AlertManager.showSigninErrorAlert(on: self ?? UIViewController(), with: error)
+            } else {
+                if let sceneDelegate = self?.view.window?.windowScene?.delegate as? SceneDelegate {
+                    sceneDelegate.checkAunthentification()
+                }
+            }
+        }
     }
     
     @objc private func signupButtonTapped() {

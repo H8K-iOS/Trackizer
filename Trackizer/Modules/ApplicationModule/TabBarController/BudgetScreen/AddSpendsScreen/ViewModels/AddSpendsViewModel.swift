@@ -16,16 +16,21 @@ final class AddSpendsViewModel {
         "\(budget.categoryName)"
     }
     
+    //MARK: - Update Category Spends
     func updateCategorySpending(categoryName: String, spendsName: String, amount: Double, completion: @escaping (Error?) -> Void) {
         authService.updateCategorySpending(categoryName: categoryName, amount: amount, completion: completion)
         
         authService.addNewSpends(categoryName: categoryName, spendsName: spendsName, amount: amount, completion: completion)
     }
     
+    
+    //MARK: - Update Category Budget
     func updateCategoryBudget(categoryName:  String, budget: Double, completion: @escaping(Error?)-> Void) {
         authService.editCategoryBudget(categoryName:  categoryName, budget: budget, completion: completion)
     }
     
+    
+    //MARK: - Delete Category
     func deleteCategory(categoryName: String, completion: @escaping (Error?) -> Void) {
         guard let userUID = Auth.auth().currentUser?.uid else {
             completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))

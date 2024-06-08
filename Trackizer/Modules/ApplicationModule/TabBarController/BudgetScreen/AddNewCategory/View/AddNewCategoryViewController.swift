@@ -68,8 +68,7 @@ final class AddNewCategoryViewController: UIViewController {
             if let error {
                 AlertManager.showAddCategoryErrorAlert(on: self ?? UIViewController())
             } else {
-                let newCategory = BudgetModel(categoryName: categoryText, categoryTotalValue: value, categorySpent: 0.0, leftToSpend: value, color: .white, icon: "")
-                self?.delegate?.didAddNewCategory(newCategory)
+                self?.delegate?.didAddNewCategory()
                 self?.dismiss(animated: true, completion: nil)
             }
         }

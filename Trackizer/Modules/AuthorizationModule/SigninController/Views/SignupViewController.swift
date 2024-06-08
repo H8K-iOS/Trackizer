@@ -53,12 +53,21 @@ final class SignupViewController: UIViewController {
     }
 
     @objc private func startButtonTapped() {
+        guard let username = usernameTextField.text,
+              let email = emailTextField.text,
+              let password = passwordTextField.text else {
+            return
+        }
         
-        viewModel.signup(username: usernameTextField.text ?? "",
-                         email: emailTextField.text ?? "",
-                         password: passwordTextField.text ?? "",
-                         vc: self)
-        
+        viewModel.signup(username: username, email: email, password: password, vc: self) { [weak self] error in
+            if let error {
+                AlertManager.showRegistrationErrorAlert(on: self ?? UIViewController(), with: error)
+            } else {
+                if let sceneDelegate = self?.view.window?.windowScene?.delegate as? SceneDelegate {
+                    sceneDelegate.checkAunthentification()
+                }
+            }
+        }
         
     }
     

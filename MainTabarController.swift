@@ -35,7 +35,6 @@ private extension MainTabarController {
     }
     
     func generateVC(for vc: UIViewController, title: String, icon: UIImage?) -> UIViewController {
-        
         vc.tabBarItem.image = icon
         vc.tabBarItem.title = title
         return vc
