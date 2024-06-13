@@ -1,6 +1,10 @@
 import UIKit
 import DGCharts
 
+protocol AddNewIncomeViewControllerDelegate: AnyObject {
+    func addNewIncome()
+}
+
 final class IncomeViewController: UIViewController {
     //MARK: Constants
     private let tableView = UITableView()
@@ -14,10 +18,12 @@ final class IncomeViewController: UIViewController {
         return hs
     }()
     
- 
+    
     
     
     //MARK: Variables
+   
+    
     private lazy var updateButton = createRoundButton(imageName: "arrow.triangle.2.circlepath", selector: #selector(updateButtonTapped))
     
     private lazy var addIncomeButton = createRoundButton(imageName: "plus", selector: #selector(addIncomeButtonTapped))
@@ -52,6 +58,12 @@ final class IncomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         setupPieChart()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        refreshData()
+    }
     //MARK: Methods
     
     private func fetchIncome() {
@@ -67,10 +79,13 @@ final class IncomeViewController: UIViewController {
     
     @objc private func refreshData() {
         fetchIncome()
+        updatePieChart()
     }
     
     @objc private func addIncomeButtonTapped() {
-        present(AddNewIncomeViewController(), animated: true)
+        let vc = AddNewIncomeViewController()
+        vc.delegate = self
+        present(vc, animated: true)
     }
     
     func updateUI() {
@@ -86,36 +101,41 @@ final class IncomeViewController: UIViewController {
 //MARK: - Extensions
 private extension IncomeViewController {
     func setupPieChart() {
-        
         pieChart.frame = CGRect(x: 0, y: 0,
-                                width: self.view.frame.size.width/1.5,
-                                height: self.view.frame.size.width/1.5)
+                                width: self.view.frame.size.width / 1.5,
+                                height: self.view.frame.size.width / 1.5)
         pieChart.center = self.view.center
-       
-            pieChart.center.x = self.view.center.x
         pieChart.center.y = self.view.frame.size.height / 4.5
-        
+        pieChart.holeColor = UIColor.clear
+        pieChart.transparentCircleColor = UIColor.clear
         self.view.addSubview(pieChart)
         
-        var entries = [BarChartDataEntry]()
+        updatePieChart()
+    }
+    
+    func updatePieChart() {
+        var incomesTotal: [String: Double] = [:]
         
-        for x in 0..<7 {
-            entries.append(BarChartDataEntry(x: Double(x),
-                                             y: Double(x)))
+        for income in viewModel.income {
+            if let currentTotal = incomesTotal[income.incomeSource] {
+                incomesTotal[income.incomeSource] = currentTotal + income.amount
+            } else {
+                incomesTotal[income.incomeSource] = income.amount
+            }
         }
         
-        
-        
-        let set = PieChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.colorful()
-        let data = PieChartData(dataSet: set)
+        var entries = [PieChartDataEntry]()
+        for (categoryName, totalAmount) in incomesTotal {
+            let entry = PieChartDataEntry(value: totalAmount, label: categoryName)
+            entries.append(entry)
+        }
+
+        let dataSet = PieChartDataSet(entries: entries, label: "Incomes")
+        dataSet.colors = ChartColorTemplates.colorful()
+
+        let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
-        
-        NSLayoutConstraint.activate([
-        
-        
-        
-        ])
+        pieChart.notifyDataSetChanged()
     }
     
     func setupUI() {
@@ -157,8 +177,22 @@ private extension IncomeViewController {
 }
 
 extension IncomeViewController: UITableViewDelegate {
-    //
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let id = viewModel.income[indexPath.row].incomeID
+        
+        viewModel.deleteIncome(incomeID: id) { [weak self] error in
+            if let error = error {
+                AlertManager.showDeleteExpenseErrorAlert(on: self ?? UIViewController(), with: error)
+                self?.tableView.reloadData()
+            } else {
+                self?.viewModel.income.remove(at: indexPath.row)
+                self?.updatePieChart()
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates() 
+            }
+        }
+    }
 }
 
 extension IncomeViewController: UITableViewDataSource {
@@ -179,22 +213,23 @@ extension IncomeViewController: UITableViewDataSource {
         return cell
     }
     
-    
+   
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .delete
+    }
 }
 
 
-extension IncomeViewController: ChartViewDelegate {
-    //
-}
+extension IncomeViewController: ChartViewDelegate {}
 
 
-extension IncomeViewController {
-    func setExpense() {
-        self.viewModel.onIncomeUpdate = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-                self?.refreshControl.endRefreshing()
-            }
+extension IncomeViewController: AddNewIncomeViewControllerDelegate {
+    func addNewIncome() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+            self?.refreshData()
         }
     }
+    
+
 }

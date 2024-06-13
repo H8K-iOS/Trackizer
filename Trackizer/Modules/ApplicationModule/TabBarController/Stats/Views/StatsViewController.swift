@@ -1,5 +1,11 @@
 import UIKit
 import DGCharts
+import Charts
+
+enum StatsState {
+    case incomes
+    case expense
+}
 
 final class StatsViewController: UIViewController {
     //MARK: Constants
@@ -8,7 +14,11 @@ final class StatsViewController: UIViewController {
     private let segmentedControll = UISegmentedControl(items: ["Incomes", "Expense"])
     private let tableView = UITableView()
     private let viewModel: StatsViewModel
+    private let timeLineButton = UIButton()
     //MARK: Variables
+    private var currentStatState: StatsState = .incomes
+   
+    
     init(viewModel: StatsViewModel = StatsViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -18,19 +28,22 @@ final class StatsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     //MARK: Lifecycle
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
         setupUI()
         setLayots()
-        lineChart.delegate = self
         
+        fetchIncome()
+        fetchExpense()
+        
+        lineChart.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        
+       
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,38 +51,60 @@ final class StatsViewController: UIViewController {
         setupLineChart()
     }
     
-    //MARK: Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchIncome()
+        fetchExpense()
+        tableView.reloadData()
+        
+    }
     
-  
+    //MARK: Methods
+    @objc private func timeLineButtonTapped() {
+        let dateVC = DateViewController()
+            dateVC.onDateRangeSelected = { [weak self] startDate, endDate in
+                self?.viewModel.setDateRange(startDate: startDate, endDate: endDate)
+            }
+            present(dateVC, animated: true, completion: nil)
+    }
+    
+    @objc private func segmentedControlChanged(_ sender: UISegmentedControl) {
+        currentStatState = sender.selectedSegmentIndex == 0 ? .incomes : .expense
+        updateLineChart()
+        tableView.reloadData()
+    }
+    
+    
+    //MARK: - Networking
+    private func fetchIncome() {
+        self.viewModel.fetchIncome { [weak self] income, error in
+            if let income {
+                self?.viewModel.incomesSource = income
+                self?.updateLineChart()
+                self?.tableView.reloadData()
+            } else if let error {
+                //TODO: -
+                AlertManager.ShowFetchingUserError(on: self ?? UIViewController(), with: error)
+            }
+            
+        }
+    }
+    
+    private func fetchExpense() {
+        self.viewModel.fetchExpense(completion: { [weak self] expense, error in
+            if let expense {
+                self?.viewModel.expenseSource = expense
+                self?.updateLineChart()
+                self?.tableView.reloadData()
+            } else if let error {
+                AlertManager.ShowFetchingUserError(on: self ?? UIViewController(), with: error)
+            }
+        })
+    }
 }
 
 //MARK: - Extensions
 private extension StatsViewController {
-    func setupLineChart() {
-        
-        lineChart.frame = CGRect(x: 0, y: 0,
-                                width: self.view.frame.size.width / 1.5,
-                                height: self.view.frame.size.width / 1.5)
-        lineChart.center = self.view.center
-       
-        lineChart.center.x = self.view.center.x
-        lineChart.center.y = self.view.frame.size.height / 3.5
-        
-        self.view.addSubview(lineChart)
-        
-        var entries = [ChartDataEntry]()
-        
-        for x in 0..<7 {
-            entries.append(ChartDataEntry(x: Double(x),
-                                             y: Double(x)))
-        }
-        
-        let set = LineChartDataSet(entries: entries)
-        set.colors = ChartColorTemplates.material()
-        let data = LineChartData(dataSet: set)
-        lineChart.data = data
-    }
-    
     func setupUI() {
         self.view.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -80,13 +115,22 @@ private extension StatsViewController {
         segmentedControll.translatesAutoresizingMaskIntoConstraints = false
         segmentedControll.backgroundColor = .gray
         segmentedControll.selectedSegmentIndex = 0
-        
+        segmentedControll.addTarget(self, action: #selector(segmentedControlChanged(_:)), for: .valueChanged)
         
         self.view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(StatsCell.self, forCellReuseIdentifier: StatsCell.identifier)
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
+        
+        self.view.addSubview(timeLineButton)
+        timeLineButton.translatesAutoresizingMaskIntoConstraints = false
+        timeLineButton.setTitle("Select a time period", for: .normal)
+        timeLineButton.setTitleColor(.systemGray, for: .normal)
+        timeLineButton.setImage(UIImage(systemName: "calendar"), for: .normal)
+        timeLineButton.tintColor = .systemGray
+        timeLineButton.addTarget(self, action: #selector(timeLineButtonTapped), for: .touchUpInside)
     }
     
     func setLayots() {
@@ -94,13 +138,18 @@ private extension StatsViewController {
             label.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 70),
             label.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
             
-            segmentedControll.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            
+            timeLineButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -25),
+            timeLineButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            timeLineButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            
+            segmentedControll.topAnchor.constraint(equalTo: timeLineButton.bottomAnchor, constant: 16),
             segmentedControll.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
             tableView.topAnchor.constraint(equalTo: segmentedControll.bottomAnchor, constant: 16),
             tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
             tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
-            tableView.heightAnchor.constraint(equalToConstant: 230)
+            tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }
@@ -119,15 +168,122 @@ extension StatsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatsCell.identifier, for: indexPath) as? StatsCell else { return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: StatsCell.identifier, for: indexPath) as? StatsCell else {
+            return UITableViewCell()
         }
         cell.selectionStyle = .none
         cell.selectedBackgroundView = .none
         
-//        let income = viewModel.incomesSource[indexPath.row]
-//        cell.configCell(with: income)
+        switch currentStatState {
+        case .incomes:
+            cell.configIncomesCell()
+        case .expense:
+            cell.configExpenseCell()
+        }
+        
         return cell
     }
-    
-    
 }
+
+//MARK: - Chart Setting
+private extension StatsViewController {
+    private func setupLineChart() {
+        lineChart.frame = CGRect(x: 0, y: 0,
+                                 width: self.view.frame.size.width ,
+                                 height: self.view.frame.size.width / 1.5)
+        lineChart.center = self.view.center
+        lineChart.center.x = self.view.center.x
+        lineChart.center.y = self.view.frame.size.height / 3.5
+        
+        self.view.addSubview(lineChart)
+        
+        var entries = [ChartDataEntry]()
+        
+        switch currentStatState {
+            
+        case .incomes:
+            let incomeData = viewModel.incomesSource.sorted { $0.date < $1.date }
+            
+            for (_, income) in incomeData.enumerated() {
+                let timeIntervalForDate = income.date.timeIntervalSince1970
+                let entry = ChartDataEntry(x: timeIntervalForDate, y: income.amount)
+                entries.append(entry)
+            }
+            
+            let set = LineChartDataSet(entries: entries)
+            set.colors = ChartColorTemplates.material()
+            let data = LineChartData(dataSet: set)
+            lineChart.data = data
+            
+            let xAxis = lineChart.xAxis
+            xAxis.valueFormatter = DateValueFormatter()
+            xAxis.granularity = 1
+            xAxis.labelPosition = .bottom
+            
+        case .expense:
+            let expenseData = viewModel.expenseSource.sorted { $0.date < $1.date }
+            
+            for (_, expense) in expenseData.enumerated() {
+                let timeIntervalForDate = expense.date.timeIntervalSince1970
+                let entry = ChartDataEntry(x: timeIntervalForDate, y: expense.amount)
+                entries.append(entry)
+            }
+            
+            let set = LineChartDataSet(entries: entries, label: " ")
+            set.colors = ChartColorTemplates.material()
+            let data = LineChartData(dataSet: set)
+            lineChart.data = data
+            
+            let xAxis = lineChart.xAxis
+            xAxis.valueFormatter = DateValueFormatter()
+            xAxis.granularity = 1
+            xAxis.labelPosition = .bottom
+        }
+        
+        
+    }
+    
+    func updateLineChart() {
+        var entries = [ChartDataEntry]()
+        switch currentStatState {
+        case .incomes:
+            let incomeData = viewModel.incomesSource.sorted { $0.date < $1.date }
+            
+            for (_, income) in incomeData.enumerated() {
+                let timeIntervalForDate = income.date.timeIntervalSince1970
+                let entry = ChartDataEntry(x: timeIntervalForDate, y: income.amount)
+                entries.append(entry)
+            }
+            
+            let set = LineChartDataSet(entries: entries)
+            set.colors = ChartColorTemplates.material()
+            let data = LineChartData(dataSet: set)
+            lineChart.data = data
+            
+            let xAxis = lineChart.xAxis
+            xAxis.valueFormatter = DateValueFormatter()
+            xAxis.granularity = 1
+            xAxis.labelPosition = .bottom
+            
+        case .expense:
+            let expenseData = viewModel.expenseSource.sorted { $0.date < $1.date }
+            
+            for (_, expense) in expenseData.enumerated() {
+                let timeIntervalForDate = expense.date.timeIntervalSince1970
+                let entry = ChartDataEntry(x: timeIntervalForDate, y: expense.amount)
+                entries.append(entry)
+            }
+            
+            let set = LineChartDataSet(entries: entries)
+            set.colors = ChartColorTemplates.material()
+            let data = LineChartData(dataSet: set)
+            lineChart.data = data
+            
+            let xAxis = lineChart.xAxis
+            xAxis.valueFormatter = DateValueFormatter()
+            xAxis.granularity = 1
+            xAxis.labelPosition = .bottom
+        }
+    }
+}
+

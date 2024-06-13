@@ -10,22 +10,13 @@ final class IncomeCell: UITableViewCell {
     private let amountLabel = UILabel()
     
     private let blurEffect = UIBlurEffect(style: .dark)
-    private let blurContainer: UIVisualEffectView = {
-        let view = UIVisualEffectView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 24
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.darkGray.cgColor
-        view.backgroundColor = .clear
-        view.clipsToBounds = true
-        return view
-    }()
     
     //MARK: Variables
     private(set) var income: IncomeModel!
     private lazy var cellHeight = Constants.screenHeight / 7.8
     private lazy var hStack = createStackView(axis: .horizontal)
     private lazy var vStack = createStackView(axis: .vertical)
+    private lazy var blurContainer = createBlurContriner(blurEffect: blurEffect)
     
     //MARK: Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -45,17 +36,15 @@ final class IncomeCell: UITableViewCell {
     public func configCell(with income: IncomeModel) {
         self.income = income
         incomeNameLabel.text = income.incomeSource
-        dateLabel.text = income.date
+        dateLabel.text = income.formattedDate() 
         amountLabel.text = "+ $\(income.amount)"
     }
-    
 }
 
 //MARK: - Extensions
 private extension IncomeCell {
     func setBackground() {
         self.addSubview(blurContainer)
-        blurContainer.effect = blurEffect
         
         self.backgroundColor = .clear
         self.clipsToBounds = true
@@ -84,7 +73,7 @@ private extension IncomeCell {
         vStack.translatesAutoresizingMaskIntoConstraints = false
         
         
-        dateLabel.textColor = .white
+        dateLabel.textColor = .systemGray
         dateLabel.font = .systemFont(ofSize: 14, weight: .light)
         
         incomeNameLabel.textColor = .white

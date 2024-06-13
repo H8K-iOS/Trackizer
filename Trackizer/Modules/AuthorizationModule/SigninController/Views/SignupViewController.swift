@@ -1,19 +1,18 @@
 import UIKit
 
-final class SignupViewController: UIViewController {
-    //MARK: Constants
+final class SignupViewController: UIViewController, UITextFieldDelegate {
+    // MARK: - Constants
     private let viewModel: SignViewModel
     private let textFieldVStack = UIStackView()
-    private let loginHStack = UIStackView()
     private let totalVStack = UIStackView()
     private let bottomVStack = UIStackView()
     private let aboveButtonLabel = UILabel()
+    private let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     
-    //MARK: Variables
+    // MARK: - Variables
     lazy var usernameTextField = createTextField(title: "Username", isSecure: false)
     lazy var emailTextField = createTextField(title: "E-mail address", isSecure: false)
     lazy var passwordTextField = createTextField(title: "Password", isSecure: true)
-    
     
     lazy var startButton = createButton(title: "Get started, it’s free!",
                                         selector: #selector(startButtonTapped),
@@ -24,7 +23,7 @@ final class SignupViewController: UIViewController {
                                          titleColor: GrayColors.white.OWColor,
                                          backgroundColor: GrayColors.gray80.OWColor)
     
-    //MARK: Lifecycle
+    // MARK: - Lifecycle
     init(_ viewModel: SignViewModel = SignViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -40,13 +39,21 @@ final class SignupViewController: UIViewController {
         setSignupViews()
         setSignupLayouts()
         
+        
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        
+        
+        
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: Methods
+    // MARK: - Methods
     
     @objc private func signinRegistrationButtonTapped() {
         navigationController?.pushViewController(SigninViewController(), animated: true)
@@ -68,15 +75,27 @@ final class SignupViewController: UIViewController {
                 }
             }
         }
-        
     }
     
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == passwordTextField {
+            startButtonTapped()
+        }
+        return true
+    }
 }
 
-//MARK: - Extensions
-    //MARK: - Sign Up Extensions
+// MARK: - Extensions
+// MARK: - Sign Up Extensions
 private extension SignupViewController {
     func setSignupViews() {
+        self.view.addGestureRecognizer(tapGesture)
         self.view.addSubview(textFieldVStack)
         textFieldVStack.addArrangedSubview(usernameTextField)
         textFieldVStack.addArrangedSubview(emailTextField)
@@ -112,9 +131,9 @@ private extension SignupViewController {
         signinButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true
         signinButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16).isActive = true
     }
+    
     func setSignupLayouts() {
         NSLayoutConstraint.activate([
-            
             totalVStack.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
             totalVStack.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             totalVStack.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),

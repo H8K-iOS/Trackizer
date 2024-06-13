@@ -2,6 +2,12 @@ import FirebaseFirestore
 import FirebaseAuth
 
 final class IncomeViewModel {
+    //MARK: - Constants
+    let incomeCategories = ["Work", "Saving","Others"]
+    private let authService = AuthService.shared
+    private let db = Firestore.firestore()
+    
+    //MARK: - Variable
     var onIncomeUpdate: (()-> Void)?
     var income: [IncomeModel] = [] {
         didSet {
@@ -9,40 +15,37 @@ final class IncomeViewModel {
         }
     }
     
-    let incomeCategories = ["Work", "Saving","Others"]
-    private let authService = AuthService.shared
+    //MARK: - Lifecycle
     init() {}
     
+    //MARK: - Methods
     func numberOfRows() -> Int{
         income.count
     }
     
-    //MARK: - Methods
-        //Fetch
-    
     func fetchIncome(completion: @escaping(([IncomeModel]?, Error?)->Void)) {
-        guard let userUID = Auth.auth().currentUser?.uid else {
-            completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
-            return
-        }
-        let db = Firestore.firestore()
-        
-        db.collection("users").document(userUID).collection("Incomes").getDocuments { snapshot, error in
-            if let error {
-                completion(nil, error)
-                return
-            }
-            
-            guard let documents = snapshot?.documents else {
-                completion(nil, NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No categories found"]))
-                return
-            }
-            let income = documents.compactMap {IncomeModel(document: $0) }
-            completion(income, nil)
-        }
+        authService.fetchIncome(completion: completion)
     }
     
-    func addNewIncome(incomeSource: String, date: String, amount: Double, completion: @escaping(Error?)->Void) {
+    func addNewIncome(incomeSource: String, date: Date, amount: Double, completion: @escaping(Error?)->Void) {
         authService.addNewIncome(incomeSourceName: incomeSource, date: date, amount: amount, completion: completion)
+    }
+    
+    //TODO: -
+    func deleteIncome(incomeID: String, completion: @escaping (Error?) -> Void) {
+        guard let userUID = Auth.auth().currentUser?.uid else {
+            completion(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "User not logged in"]))
+            return
+        }
+
+        let incomeDocRef = self.db.collection("users").document(userUID).collection("Incomes").document(incomeID)
+        
+        incomeDocRef.delete { error in
+            if let error = error {
+                completion(error)
+            } else {
+                completion(nil)
+            }
+        }
     }
 }

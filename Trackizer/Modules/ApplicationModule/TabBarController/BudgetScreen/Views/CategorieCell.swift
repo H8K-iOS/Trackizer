@@ -5,16 +5,16 @@ final class CategorieCell: UITableViewCell {
     public static let identifier = "CategorieCell"
     
     private let blurEffect = UIBlurEffect(style: .dark)
-    private let blurContainer: UIVisualEffectView = {
-        let view = UIVisualEffectView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 24
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.darkGray.cgColor
-        view.backgroundColor = .clear
-        view.clipsToBounds = true
-        return view
-    }()
+//    private let blurContainer: UIVisualEffectView = {
+//        let view = UIVisualEffectView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.layer.cornerRadius = 24
+//        view.layer.borderWidth = 1
+//        view.layer.borderColor = UIColor.darkGray.cgColor
+//        view.backgroundColor = .clear
+//        view.clipsToBounds = true
+//        return view
+//    }()
     private let categoryIcon = UILabel()
     private let categoryNameLabel = UILabel()
     private let leftToSpendLabel = UILabel()
@@ -29,11 +29,12 @@ final class CategorieCell: UITableViewCell {
     private lazy var labelsVStack = createStackView(axis: .vertical)
     private lazy var moneyVStack = createStackView(axis: .vertical)
     private lazy var totalHStack = createStackView(axis: .horizontal)
-    private var backgroundLayer: CAShapeLayer?
-    public var progressLayer: CAShapeLayer?
-    
+
+    private lazy var blurContainer = createBlurContriner(blurEffect: blurEffect)
     private(set) var budget: BudgetModel!
     
+    private var backgroundLayer: CAShapeLayer?
+    public var progressLayer: CAShapeLayer?
     private var currentCategoryValue: Double?
     private var totalBudgetForCategory: Double?
     
@@ -99,7 +100,6 @@ final class CategorieCell: UITableViewCell {
 private extension CategorieCell {
     func setupUI() {
         self.addSubview(blurContainer)
-        blurContainer.effect = blurEffect
         
         self.addSubview(totalHStack)
         self.addSubview(categoryIcon)

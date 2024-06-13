@@ -6,10 +6,10 @@ enum State {
 }
 
 final class AddSpendsViewController: UIViewController {
-    //MARK: Constants
+    // MARK: Constants
     private var state = State.add
     weak var delegate: AddNewSpendViewControllerDelegate?
-    
+
     private let blurEffect = UIBlurEffect(style: .dark)
     private let blurContaienr: UIVisualEffectView = {
         let view = UIVisualEffectView()
@@ -36,18 +36,18 @@ final class AddSpendsViewController: UIViewController {
         dp.tintColor = .white
         return dp
     }()
-    
-    //MARK: Variables
+    private let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+
+    // MARK: Variables
     private lazy var spendNameTextField = createTextField(placeholder: "Name of the expenditure")
     private lazy var valueTextField = createTextField(placeholder: "Amount spent")
     private lazy var totalBudgetTextField = createTextField(placeholder: "Category budget amount")
     private lazy var textFieldVStack = createStackView(axis: .vertical)
     private lazy var continueButton = createButton(selector: #selector(continueButtonTapped))
-    
-    //MARK: lifecycle
+
+    // MARK: Lifecycle
     init(_ viewModel: AddSpendsViewModel) {
         self.viewModel = viewModel
-        
         super.init(nibName: nil, bundle: nil)
         self.modalPresentationStyle = .overFullScreen
     }
@@ -55,18 +55,25 @@ final class AddSpendsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //MARK: Lifecycle
+
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = .clear
         setupBackground()
         setupUI()
         displayCategoryInfo()
+        
+        // Add tap gesture recognizer to hide keyboard
+        view.addGestureRecognizer(tapGesture)
+        
+        // Set text field delegates
+        spendNameTextField.delegate = self
+        valueTextField.delegate = self
+        totalBudgetTextField.delegate = self
     }
-    
-    //MARK: Methods
+
+    // MARK: Methods
     @objc func continueButtonTapped() {
         switch state {
         case .add:
@@ -74,9 +81,8 @@ final class AddSpendsViewController: UIViewController {
         case .edit:
             updateBudget()
         }
-        
     }
-    
+
     @objc private func deleteButtonTapped() {
         let alertController = UIAlertController(title: "Delete Category", message: "Are you sure you want to delete this category?", preferredStyle: .alert)
         
@@ -105,17 +111,21 @@ final class AddSpendsViewController: UIViewController {
             }
         }
     }
-    
+
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     @objc private func closeButtonTapped() {
         self.dismiss(animated: true)
     }
-    
+
     @objc private func editButtonTapped() {
         self.state = (self.state == .add) ? .edit : .add
         
         switch state {
         case .add:
-            self.categoryNameLabel.text = viewModel.budget.categoryName
+            self.categoryNameLabel.text = viewModel.categoryName
             self.editButton.setImage(UIImage(systemName: "gear"), for: .normal)
             self.totalBudgetTextField.isHidden = true
             self.textFieldVStack.isHidden = false
@@ -132,7 +142,7 @@ final class AddSpendsViewController: UIViewController {
             self.continueButton.setTitle("Edit budget", for: .normal)
         }
     }
-    
+
     private func addNewSpends() {
         guard let spendsName = spendNameTextField.text,
               let valueText = valueTextField.text,
@@ -142,8 +152,9 @@ final class AddSpendsViewController: UIViewController {
         }
         
         let categoryName = viewModel.categoryName
+        let selectedDate = datePicker.date
         
-        viewModel.updateCategorySpending(categoryName: categoryName, spendsName: spendsName, amount: value) { [weak self] error in
+        viewModel.updateCategorySpending(categoryName: categoryName, spendsName: spendsName, date: selectedDate, amount: value) { [weak self] error in
             if error != nil {
                 print("Failed to update category spending: ")
             } else {
@@ -152,7 +163,7 @@ final class AddSpendsViewController: UIViewController {
             }
         }
     }
-    
+
     private func updateBudget() {
         guard let budget = totalBudgetTextField.text,
               let value = Double(budget) else {
@@ -173,70 +184,64 @@ final class AddSpendsViewController: UIViewController {
     }
 }
 
-//MARK: - Extensions
+// MARK: - Extensions
 private extension AddSpendsViewController {
     func setupBackground() {
         self.view.addSubview(blurContaienr)
         blurContaienr.effect = blurEffect
         
         NSLayoutConstraint.activate([
-            
             blurContaienr.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             blurContaienr.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            
-            blurContaienr.widthAnchor.constraint(equalToConstant: Constants.screenHeight/2.7),
-            blurContaienr.heightAnchor.constraint(equalToConstant: Constants.screenHeight/2),
+            blurContaienr.widthAnchor.constraint(equalToConstant: Constants.screenHeight / 2.7),
+            blurContaienr.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 2),
         ])
     }
-    
-    
+
     func setupUI() {
+        self.view.addGestureRecognizer(tapGesture)
         self.view.addSubview(categoryNameLabel)
         self.view.addSubview(textFieldVStack)
         self.view.addSubview(continueButton)
         self.view.addSubview(closeButton)
+        self.view.addSubview(datePicker)
+        self.view.addSubview(editButton)
+        self.view.addSubview(deleteButton)
+        self.view.addSubview(totalBudgetTextField)
+        
         textFieldVStack.addArrangedSubview(spendNameTextField)
         textFieldVStack.addArrangedSubview(valueTextField)
         
         closeButton.translatesAutoresizingMaskIntoConstraints = false
+        categoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        textFieldVStack.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        editButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        totalBudgetTextField.translatesAutoresizingMaskIntoConstraints = false
+        continueButton.translatesAutoresizingMaskIntoConstraints = false
         
         closeButton.setTitle("Close", for: .normal)
         closeButton.setTitleColor(.gray, for: .normal)
         closeButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .light)
         closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         
-        categoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        spendNameTextField.translatesAutoresizingMaskIntoConstraints = false
-        valueTextField.translatesAutoresizingMaskIntoConstraints = false
-        textFieldVStack.translatesAutoresizingMaskIntoConstraints = false
-        
         categoryNameLabel.textColor = .white
-        categoryNameLabel.text = "category"
+        categoryNameLabel.text = "Category"
         categoryNameLabel.font = .systemFont(ofSize: 24, weight: .heavy)
         
-        self.view.addSubview(datePicker)
-        datePicker.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(editButton)
-        editButton.translatesAutoresizingMaskIntoConstraints = false
         editButton.backgroundColor = .clear
         editButton.tintColor = .gray
         editButton.setImage(UIImage(systemName: "gear"), for: .normal)
         editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
         
-        self.view.addSubview(deleteButton)
-        deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.backgroundColor = .clear
         deleteButton.tintColor = .gray
         deleteButton.isHidden = true
         deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
         
-        self.view.addSubview(totalBudgetTextField)
-        totalBudgetTextField.translatesAutoresizingMaskIntoConstraints = false
         totalBudgetTextField.isHidden = true
-        
-       
         
         NSLayoutConstraint.activate([
             closeButton.topAnchor.constraint(equalTo: blurContaienr.topAnchor, constant: 16),
@@ -244,7 +249,6 @@ private extension AddSpendsViewController {
             
             editButton.topAnchor.constraint(equalTo: blurContaienr.topAnchor, constant: 16),
             editButton.rightAnchor.constraint(equalTo: blurContaienr.rightAnchor, constant: -16),
-            
             
             deleteButton.topAnchor.constraint(equalTo: blurContaienr.topAnchor, constant: 16),
             deleteButton.rightAnchor.constraint(equalTo: editButton.rightAnchor, constant: -24),
@@ -266,19 +270,23 @@ private extension AddSpendsViewController {
         
             spendNameTextField.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 15),
             valueTextField.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 15),
-           
             
             continueButton.bottomAnchor.constraint(equalTo: blurContaienr.bottomAnchor, constant: -16),
             continueButton.leftAnchor.constraint(equalTo: blurContaienr.leftAnchor, constant: 16),
             continueButton.rightAnchor.constraint(equalTo: blurContaienr.rightAnchor, constant: -16),
-            
-            continueButton.heightAnchor.constraint(equalToConstant: Constants.screenHeight/15)
-            
-
+            continueButton.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 15),
         ])
     }
-    
+
     func displayCategoryInfo() {
         self.categoryNameLabel.text = self.viewModel.categoryName
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension AddSpendsViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

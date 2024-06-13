@@ -7,25 +7,16 @@ final class ExpenseCell: UITableViewCell {
     private let categoryNameLabel = UILabel()
     private let spendsNameLabel = UILabel()
     private let amountLabel = UILabel()
+    private let dateLabel = UILabel()
     
     private let blurEffect = UIBlurEffect(style: .dark)
-    private let blurContainer: UIVisualEffectView = {
-        let view = UIVisualEffectView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 24
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.darkGray.cgColor
-        view.backgroundColor = .clear
-        view.clipsToBounds = true
-        return view
-    }()
+
     
     //MARK: Variables
     private(set) var expense: ExpenseModel!
     private lazy var cellHeight = Constants.screenHeight / 7.8
-    private lazy var hStack = createStackView(axis: .horizontal)
     private lazy var vStack = createStackView(axis: .vertical)
-    
+    private lazy var blurContainer = createBlurContriner(blurEffect: blurEffect)
     //MARK: Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -45,6 +36,7 @@ final class ExpenseCell: UITableViewCell {
         self.expense = expense
         categoryNameLabel.text = expense.categoryName
         spendsNameLabel.text = expense.spendsName
+        dateLabel.text = expense.formattedDate()
         amountLabel.text = "- $\(expense.amount)"
     }
     
@@ -54,7 +46,6 @@ final class ExpenseCell: UITableViewCell {
 private extension ExpenseCell {
     func setBackground() {
         self.addSubview(blurContainer)
-        blurContainer.effect = blurEffect
         
         self.backgroundColor = .clear
         self.clipsToBounds = true
@@ -72,16 +63,16 @@ private extension ExpenseCell {
     
     func setupUI() {
         self.addSubview(vStack)
-        vStack.addArrangedSubview(spendsNameLabel)
+        
         vStack.addArrangedSubview(categoryNameLabel)
-        self.addSubview(hStack)
-        hStack.addArrangedSubview(vStack)
-       
-        hStack.addArrangedSubview(amountLabel)
-        
-        hStack.translatesAutoresizingMaskIntoConstraints = false
+        vStack.addArrangedSubview(dateLabel)
         vStack.translatesAutoresizingMaskIntoConstraints = false
+       
+        self.addSubview(amountLabel)
+        amountLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        self.addSubview(spendsNameLabel)
+        spendsNameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         categoryNameLabel.textColor = .white
         categoryNameLabel.font = .systemFont(ofSize: 14, weight: .light)
@@ -92,12 +83,19 @@ private extension ExpenseCell {
         amountLabel.textColor = .systemRed
         amountLabel.font = .systemFont(ofSize: 18, weight: .medium)
         
+        dateLabel.textColor = .systemGray
+        dateLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        
         NSLayoutConstraint.activate([
-            self.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 10),
+            self.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 9),
+            spendsNameLabel.topAnchor.constraint(equalTo: blurContainer.topAnchor, constant: 16),
+            spendsNameLabel.leftAnchor.constraint(equalTo: blurContainer.leftAnchor, constant: 16),
             
-            hStack.leftAnchor.constraint(equalTo: blurContainer.leftAnchor, constant: 16),
-            hStack.rightAnchor.constraint(equalTo: blurContainer.rightAnchor, constant: -16),
-            hStack.centerYAnchor.constraint(equalTo: blurContainer.centerYAnchor),
+            vStack.topAnchor.constraint(equalTo: spendsNameLabel.bottomAnchor, constant: 4),
+            vStack.leftAnchor.constraint(equalTo: blurContainer.leftAnchor, constant: 16),
+            
+            amountLabel.centerYAnchor.constraint(equalTo: blurContainer.centerYAnchor),
+            amountLabel.rightAnchor.constraint(equalTo: blurContainer.rightAnchor, constant: -16)
         ])
     }
     

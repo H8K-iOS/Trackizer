@@ -1,7 +1,7 @@
 import UIKit
 import DropDown
 
-final class AddNewCategoryViewController: UIViewController {
+final class AddNewCategoryViewController: UIViewController, UITextFieldDelegate {
     //MARK: Constants
     private let blurEffect = UIBlurEffect(style: .dark)
     private let blurContaienr: UIVisualEffectView = {
@@ -23,6 +23,7 @@ final class AddNewCategoryViewController: UIViewController {
     private let categoryPickerCategoryNameLabel = UILabel()
     private let categoryPickerPickButton = UIButton()
     private let dropDownMenu = DropDown()
+    private lazy var tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
     
     weak var delegate: AddNewCategoryViewControllerDelegate?
     
@@ -32,7 +33,7 @@ final class AddNewCategoryViewController: UIViewController {
     //MARK: Variables
     private lazy var continueButton = createButton(selector: #selector(continueButtonTapped))
     
-    //MARK: lifecycle
+    //MARK: Lifecycle
     init(_ viewModel: AddNewCategoryViewModel = AddNewCategoryViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -51,18 +52,23 @@ final class AddNewCategoryViewController: UIViewController {
         setupBackground()
         setupUI()
         setCategoryPicker()
-        
         setupDropDownMenu()
+        
+        // Add tap gesture recognizer
+        view.addGestureRecognizer(tapGesture)
+        
+        // Set text field delegate
+        totalBudgetTextField.delegate = self
     }
-    //MARK: Methods
     
+    //MARK: Methods
     @objc func continueButtonTapped() {
-            guard let categoryText = categoryPickerCategoryNameLabel.text,
-                  let totalBudget = totalBudgetTextField.text,
-                  let value = Double(totalBudget) else {
-                AlertManager.showAddCategoryErrorAlert(on: self)
-                return
-            }
+        guard let categoryText = categoryPickerCategoryNameLabel.text,
+              let totalBudget = totalBudgetTextField.text,
+              let value = Double(totalBudget) else {
+            AlertManager.showAddCategoryErrorAlert(on: self)
+            return
+        }
         
         viewModel.addCategory(categoryName: categoryText, categoryBudget: value) { [weak self] error in
             if let error {
@@ -74,12 +80,23 @@ final class AddNewCategoryViewController: UIViewController {
         }
     }
     
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @objc private func closeButtonTapped() {
         self.dismiss(animated: true)
     }
     
     @objc private func pickButtonTapped() {
         dropDownMenu.show()
+    }
+    
+    // UITextFieldDelegate method
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        continueButtonTapped()  // You can call the continue action here if necessary
+        return true
     }
 }
 
@@ -90,15 +107,12 @@ private extension AddNewCategoryViewController {
         blurContaienr.effect = blurEffect
         
         NSLayoutConstraint.activate([
-            
             blurContaienr.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             blurContaienr.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
-            
-            blurContaienr.widthAnchor.constraint(equalToConstant: Constants.screenHeight/2.7),
-            blurContaienr.heightAnchor.constraint(equalToConstant: Constants.screenHeight/2),
+            blurContaienr.widthAnchor.constraint(equalToConstant: Constants.screenHeight / 2.7),
+            blurContaienr.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 2),
         ])
     }
-    
     
     func setupUI() {
         self.view.addSubview(categoryNameLabel)
@@ -124,7 +138,6 @@ private extension AddNewCategoryViewController {
         categoryPickerLabel.text = "Your category"
         categoryPickerLabel.font = .systemFont(ofSize: 16, weight: .medium)
         
-        
         button.setTitle("Close", for: .normal)
         button.setTitleColor(.gray, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .light)
@@ -133,34 +146,20 @@ private extension AddNewCategoryViewController {
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: blurContaienr.topAnchor, constant: 16),
             button.leftAnchor.constraint(equalTo: blurContaienr.leftAnchor, constant: 16),
-            
             categoryNameLabel.topAnchor.constraint(equalTo: blurContaienr.topAnchor, constant: 16),
             categoryNameLabel.centerXAnchor.constraint(equalTo: blurContaienr.centerXAnchor),
-            
             textFieldVStack.leftAnchor.constraint(equalTo: blurContaienr.leftAnchor, constant: 8),
             textFieldVStack.rightAnchor.constraint(equalTo: blurContaienr.rightAnchor, constant: -8),
             textFieldVStack.centerYAnchor.constraint(equalTo: blurContaienr.centerYAnchor),
-            
-            
             categoryPickerView.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 15),
             totalBudgetTextField.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 15),
-            
             categoryPickerLabel.bottomAnchor.constraint(equalTo: categoryPickerView.topAnchor, constant: -12),
             categoryPickerLabel.leftAnchor.constraint(equalTo: blurContaienr.leftAnchor, constant: 16),
-            
-            
             continueButton.bottomAnchor.constraint(equalTo: blurContaienr.bottomAnchor, constant: -16),
             continueButton.leftAnchor.constraint(equalTo: blurContaienr.leftAnchor, constant: 16),
             continueButton.rightAnchor.constraint(equalTo: blurContaienr.rightAnchor, constant: -16),
-            
-            continueButton.heightAnchor.constraint(equalToConstant: Constants.screenHeight/15)
-            
+            continueButton.heightAnchor.constraint(equalToConstant: Constants.screenHeight / 15)
         ])
-        
-        
-        
-      
-
     }
 }
 
@@ -172,28 +171,24 @@ extension AddNewCategoryViewController {
         dropDownMenu.topOffset = CGPoint(x: 0, y: -(dropDownMenu.anchorView?.plainView.bounds.height)!)
         dropDownMenu.direction = .bottom
         
-        dropDownMenu.selectionAction = { (index: Int, item: String) in
-            self.categoryPickerCategoryNameLabel.text = self.viewModel.categories[index]
-            self.categoryPickerCategoryNameLabel.textColor = .white
+        dropDownMenu.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.categoryPickerCategoryNameLabel.text = self?.viewModel.categories[index]
+            self?.categoryPickerCategoryNameLabel.textColor = .white
         }
     }
     
     func setCategoryPicker() {
-        
         categoryPickerView.addSubview(categoryPickerCategoryNameLabel)
         categoryPickerView.addSubview(categoryPickerPickButton)
-        
         
         categoryPickerCategoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryPickerPickButton.translatesAutoresizingMaskIntoConstraints = false
         categoryPickerView.translatesAutoresizingMaskIntoConstraints = false
         
-        
         categoryPickerView.backgroundColor = .clear
         categoryPickerView.layer.borderWidth = 1
         categoryPickerView.layer.cornerRadius = 20
         categoryPickerView.layer.borderColor = GrayColors.gray70.OWColor.cgColor
-        
         
         categoryPickerCategoryNameLabel.textColor = .gray
         categoryPickerCategoryNameLabel.text = "Select category"
@@ -204,11 +199,8 @@ extension AddNewCategoryViewController {
         categoryPickerPickButton.tintColor = .white
         
         NSLayoutConstraint.activate([
-        
             categoryPickerCategoryNameLabel.centerYAnchor.constraint(equalTo: categoryPickerView.centerYAnchor),
             categoryPickerCategoryNameLabel.leftAnchor.constraint(equalTo: categoryPickerView.leftAnchor, constant: 16),
-            
-            
             categoryPickerPickButton.rightAnchor.constraint(equalTo: categoryPickerView.rightAnchor, constant: -16),
             categoryPickerPickButton.topAnchor.constraint(equalTo: categoryPickerView.topAnchor, constant: 16),
             categoryPickerPickButton.bottomAnchor.constraint(equalTo: categoryPickerView.bottomAnchor, constant: -16)
