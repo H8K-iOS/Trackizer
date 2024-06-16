@@ -25,6 +25,11 @@ final class IncomeCell: UITableViewCell {
         setBackground()
         setupUI()
         self.backgroundColor = .clear
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCurrencySymbol), name: .currencyDidChange, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     required init?(coder: NSCoder) {
@@ -37,7 +42,13 @@ final class IncomeCell: UITableViewCell {
         self.income = income
         incomeNameLabel.text = income.incomeSource
         dateLabel.text = income.formattedDate() 
-        amountLabel.text = "+ $\(income.amount)"
+       
+        updateCurrencySymbol()
+    }
+    
+    @objc private func updateCurrencySymbol() {
+        let symbol = CurrencyManager.shared.currentSymbol.rawValue
+        self.amountLabel.text = "+ \(symbol) \(income.amount)"
     }
 }
 

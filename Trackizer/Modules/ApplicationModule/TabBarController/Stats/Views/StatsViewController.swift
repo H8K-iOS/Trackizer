@@ -131,6 +131,7 @@ private extension StatsViewController {
         timeLineButton.setImage(UIImage(systemName: "calendar"), for: .normal)
         timeLineButton.tintColor = .systemGray
         timeLineButton.addTarget(self, action: #selector(timeLineButtonTapped), for: .touchUpInside)
+        timeLineButton.isHidden = true
     }
     
     func setLayots() {
@@ -143,7 +144,7 @@ private extension StatsViewController {
             timeLineButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             timeLineButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
             
-            segmentedControll.topAnchor.constraint(equalTo: timeLineButton.bottomAnchor, constant: 16),
+            segmentedControll.topAnchor.constraint(equalTo: timeLineButton.bottomAnchor, constant: 1),
             segmentedControll.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
             tableView.topAnchor.constraint(equalTo: segmentedControll.bottomAnchor, constant: 16),
@@ -187,31 +188,48 @@ extension StatsViewController: UITableViewDataSource {
 
 //MARK: - Chart Setting
 private extension StatsViewController {
-    private func setupLineChart() {
-        lineChart.frame = CGRect(x: 0, y: 0,
-                                 width: self.view.frame.size.width ,
-                                 height: self.view.frame.size.width / 1.5)
-        lineChart.center = self.view.center
-        lineChart.center.x = self.view.center.x
-        lineChart.center.y = self.view.frame.size.height / 3.5
-        
-        self.view.addSubview(lineChart)
-        
-        var entries = [ChartDataEntry]()
-        
-        switch currentStatState {
+        private func setupLineChart() {
+            lineChart.frame = CGRect(x: 0, y: 0,
+                                     width: self.view.frame.size.width ,
+                                     height: self.view.frame.size.width / 1.5)
+            lineChart.center = self.view.center
+            lineChart.center.x = self.view.center.x
+            lineChart.center.y = self.view.frame.size.height / 3.5
             
-        case .incomes:
-            let incomeData = viewModel.incomesSource.sorted { $0.date < $1.date }
+            self.view.addSubview(lineChart)
             
-            for (_, income) in incomeData.enumerated() {
-                let timeIntervalForDate = income.date.timeIntervalSince1970
-                let entry = ChartDataEntry(x: timeIntervalForDate, y: income.amount)
-                entries.append(entry)
+            var entries = [ChartDataEntry]()
+            var dataSetLabel = ""
+            
+            switch currentStatState {
+            case .incomes:
+                let incomeData = viewModel.incomesSource.sorted { $0.date < $1.date }
+                
+                for (_, income) in incomeData.enumerated() {
+                    let timeIntervalForDate = income.date.timeIntervalSince1970
+                    let entry = ChartDataEntry(x: timeIntervalForDate, y: income.amount)
+                    entries.append(entry)
+                }
+                
+                dataSetLabel = "Incomes" // Description for incomes dataset
+                
+            case .expense:
+                let expenseData = viewModel.expenseSource.sorted { $0.date < $1.date }
+                
+                for (_, expense) in expenseData.enumerated() {
+                    let timeIntervalForDate = expense.date.timeIntervalSince1970
+                    let entry = ChartDataEntry(x: timeIntervalForDate, y: expense.amount)
+                    entries.append(entry)
+                }
+                
+                dataSetLabel = "Expenses" // Description for expenses dataset
             }
             
-            let set = LineChartDataSet(entries: entries)
+            let set = LineChartDataSet(entries: entries, label: dataSetLabel)
             set.colors = ChartColorTemplates.material()
+            set.drawIconsEnabled = false // Disable drawing icons (squares)
+            set.drawValuesEnabled = false // Disable drawing values next to each entry
+            
             let data = LineChartData(dataSet: set)
             lineChart.data = data
             
@@ -220,28 +238,19 @@ private extension StatsViewController {
             xAxis.granularity = 1
             xAxis.labelPosition = .bottom
             
-        case .expense:
-            let expenseData = viewModel.expenseSource.sorted { $0.date < $1.date }
+            let legend = lineChart.legend
+            legend.enabled = true
+            legend.horizontalAlignment = .center
+            legend.verticalAlignment = .bottom
+            legend.orientation = .horizontal
+            legend.drawInside = false
+            legend.form = .circle
             
-            for (_, expense) in expenseData.enumerated() {
-                let timeIntervalForDate = expense.date.timeIntervalSince1970
-                let entry = ChartDataEntry(x: timeIntervalForDate, y: expense.amount)
-                entries.append(entry)
-            }
+            let legendEntry = LegendEntry(label: "")
+            legend.setCustom(entries: [legendEntry])
             
-            let set = LineChartDataSet(entries: entries, label: " ")
-            set.colors = ChartColorTemplates.material()
-            let data = LineChartData(dataSet: set)
-            lineChart.data = data
-            
-            let xAxis = lineChart.xAxis
-            xAxis.valueFormatter = DateValueFormatter()
-            xAxis.granularity = 1
-            xAxis.labelPosition = .bottom
-        }
-        
-        
-    }
+            lineChart.notifyDataSetChanged()
+        }    
     
     func updateLineChart() {
         var entries = [ChartDataEntry]()

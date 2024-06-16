@@ -5,16 +5,6 @@ final class CategorieCell: UITableViewCell {
     public static let identifier = "CategorieCell"
     
     private let blurEffect = UIBlurEffect(style: .dark)
-//    private let blurContainer: UIVisualEffectView = {
-//        let view = UIVisualEffectView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.cornerRadius = 24
-//        view.layer.borderWidth = 1
-//        view.layer.borderColor = UIColor.darkGray.cgColor
-//        view.backgroundColor = .clear
-//        view.clipsToBounds = true
-//        return view
-//    }()
     private let categoryIcon = UILabel()
     private let categoryNameLabel = UILabel()
     private let leftToSpendLabel = UILabel()
@@ -29,7 +19,6 @@ final class CategorieCell: UITableViewCell {
     private lazy var labelsVStack = createStackView(axis: .vertical)
     private lazy var moneyVStack = createStackView(axis: .vertical)
     private lazy var totalHStack = createStackView(axis: .horizontal)
-
     private lazy var blurContainer = createBlurContriner(blurEffect: blurEffect)
     private(set) var budget: BudgetModel!
     
@@ -43,6 +32,7 @@ final class CategorieCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCurrencySymbol), name: .currencyDidChange, object: nil)
     }
     
     override func draw(_ rect: CGRect) {
@@ -58,42 +48,49 @@ final class CategorieCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Methods
     public func configCell(with budget: BudgetModel) {
         self.budget = budget
         self.categoryNameLabel.text = budget.categoryName
-        
-        self.spendsLabel.text = "$\(budget.categorySpent)"
         self.currentCategoryValue = budget.categorySpent
-        
-        self.totalSpendsLabel.text = "$\(budget.categoryTotalValue)"
         self.totalBudgetForCategory = budget.categoryTotalValue
-        
         self.categoryIcon.text = budget.icon
         
-        
-        if let currentCategoryValue = currentCategoryValue, let totalBudgetForCategory = totalBudgetForCategory, currentCategoryValue > totalBudgetForCategory {
-            self.spendsLabel.textColor = .systemOrange
-            self.leftToSpendLabel.text = "you exceeded the limit by $\(abs(budget.leftToSpend ?? 0))"
-            self.leftToSpendLabel.font = .systemFont(ofSize: 12)
-        } else {
-            self.spendsLabel.textColor = .white
-            self.leftToSpendLabel.text = "$\(budget.leftToSpend ?? 0) left to spend"
-            self.leftToSpendLabel.font = .systemFont(ofSize: 14)
-        }
+        updateCurrencySymbol() 
         
         updateProgressLayer()
     }
     
     private func updateProgressLayer() {
-            progressLayer?.removeFromSuperlayer()
-            
-            let progressLayer = configProgressLayer(color: budget.color)
-            container.layer.addSublayer(progressLayer)
-            self.progressLayer = progressLayer
-            
-            startAnimation(currentSum: currentCategoryValue ?? 0.0, total: totalBudgetForCategory ?? 0.0)
+        progressLayer?.removeFromSuperlayer()
+        
+        let progressLayer = configProgressLayer(color: budget.color)
+        container.layer.addSublayer(progressLayer)
+        self.progressLayer = progressLayer
+        
+        startAnimation(currentSum: currentCategoryValue ?? 0.0, total: totalBudgetForCategory ?? 0.0)
+    }
+    
+    @objc private func updateCurrencySymbol() {
+        let symbol = CurrencyManager.shared.currentSymbol
+        
+        self.spendsLabel.text = "\(symbol.rawValue)\(budget.categorySpent)"
+        self.totalSpendsLabel.text = "\(symbol.rawValue)\(budget.categoryTotalValue)"
+        
+        if let currentCategoryValue = currentCategoryValue,
+           let totalBudgetForCategory = totalBudgetForCategory,
+           currentCategoryValue > totalBudgetForCategory {
+            self.spendsLabel.textColor = .systemOrange
+            self.leftToSpendLabel.text = "you exceeded the limit by \(symbol.rawValue)\(abs(budget.leftToSpend))"
+        } else {
+            self.spendsLabel.textColor = .white
+            self.leftToSpendLabel.text = "\(symbol.rawValue)\(budget.leftToSpend) left to spend"
         }
+    }
 }
 
 // MARK: - Extensions

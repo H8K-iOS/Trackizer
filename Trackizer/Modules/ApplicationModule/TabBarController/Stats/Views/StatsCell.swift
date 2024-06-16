@@ -30,7 +30,9 @@ final class StatsCell: UITableViewCell {
         setupCountView()
         setupUI()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCurrencySymbol), name: .currencyDidChange, object: nil)
         
+        updateCurrencySymbol()
     }
     
     required init?(coder: NSCoder) {
@@ -38,11 +40,22 @@ final class StatsCell: UITableViewCell {
     }
     //MARK: Methods
     
+    @objc private func updateCurrencySymbol() {
+        let symbol = CurrencyManager.shared.currentSymbol.rawValue
+        self.currencyLabel.text = CurrencyManager.shared.currentCurrencyCode
+        
+        if let income = income {
+            amountLabel.text = "+ \(symbol)\(income.amount)"
+        } else if let expense = expense {
+            amountLabel.text = "- \(symbol)\(expense.amount)"
+        }
+    }
+    
     public func configIncomesCell() {
         authService.calculateIncome { [weak self] count, total, categotyCount in
             DispatchQueue.main.async {
                 self?.typeLabel.text = "Incomes"
-                self?.amountLabel.text = "+ $\(total)"
+                self?.amountLabel.text = "+ \(CurrencyManager.shared.currentSymbol.rawValue)\(total)"
                 self?.amountLabel.textColor = .systemGreen.withAlphaComponent(0.8)
                 self?.transactionCount.text = "You have made a total of \(count) transactions"
                 self?.typeBy.text = "Incomes by"
@@ -55,7 +68,7 @@ final class StatsCell: UITableViewCell {
         authService.calculateExpense { [weak self] count, total, categoryCount in
             DispatchQueue.main.async {
                 self?.typeLabel.text = "Expense"
-                self?.amountLabel.text = "- $\(total)"
+                self?.amountLabel.text = "- \(CurrencyManager.shared.currentSymbol.rawValue)\(total)"
                 self?.amountLabel.textColor = .systemRed.withAlphaComponent(0.8)
                 self?.transactionCount.text = "You have made a total of \(count) transactions"
                 self?.typeBy.text = "Expense by"
@@ -138,15 +151,15 @@ private extension StatsCell {
         currencyLabel.translatesAutoresizingMaskIntoConstraints = false
         transactionCount.translatesAutoresizingMaskIntoConstraints = false
         
-        typeLabel.text = "Incomes"
+        
         typeLabel.textColor = .white
         typeLabel.font = .systemFont(ofSize: 20, weight: .medium)
         
-        amountLabel.text = "+ $0"
+        
         amountLabel.textColor = .systemGreen.withAlphaComponent(0.8)
         amountLabel.font = .systemFont(ofSize: 24, weight: .medium)
         
-        currencyLabel.text = "USD"
+        
         currencyLabel.textColor = .white
         currencyLabel.font = .systemFont(ofSize: 12, weight: .medium)
         

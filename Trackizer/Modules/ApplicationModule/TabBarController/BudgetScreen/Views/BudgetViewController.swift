@@ -31,6 +31,9 @@ final class BudgetViewController: UIViewController {
     
     private lazy var userButton = createRoundButton(imageName: "person.fill", selector: #selector(userButtonTapped))
     
+    private lazy var addUserButton = createRoundButton(imageName: "person.badge.plus", selector: #selector(addUserButtonTapped))
+    
+    private lazy var switchUser = createRoundButton(imageName: "switch.2", selector: #selector(switchUserButtonTapped))
     private var categorySum: Double? = 0
     
     var backgroundLayer: CAShapeLayer?
@@ -59,6 +62,10 @@ final class BudgetViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCurrencySymbol), name: .currencyDidChange, object: nil)
+                
+        updateCurrencySymbol()
     }
     
     //MARK: ViewDidLayoutSubviews
@@ -76,6 +83,10 @@ final class BudgetViewController: UIViewController {
         refreshData()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -88,7 +99,16 @@ final class BudgetViewController: UIViewController {
     }
     
     @objc private func userButtonTapped() {
+       
         present(UserViewController(), animated: true)
+    }
+    
+    @objc private func addUserButtonTapped() {
+        present(AddNewUserViewController(), animated: true)
+    }
+    
+    @objc private func switchUserButtonTapped() {
+        print("qq")
     }
     
     func checkData() {
@@ -116,6 +136,7 @@ final class BudgetViewController: UIViewController {
         fetchCategories()
         updateRoundView()
         checkData()
+        updateUI()
     }
     
     private func updateRoundView() {
@@ -132,6 +153,19 @@ final class BudgetViewController: UIViewController {
         }
     }
     
+    @objc private func updateCurrencySymbol() {
+            let currencySymbol = CurrencyManager.shared.currentSymbol.rawValue
+            
+            if let totalBudget = totalBudget {
+                budgetDescriptionLabel.text = "of \(currencySymbol) \(totalBudget) budget"
+            }
+            
+            if let categorySum = categorySum {
+                budgetLabel.text = "\(currencySymbol) \(categorySum)"
+            }
+        }
+    
+    //MARK: - Networking
     private func fetchCategories() {
         viewModel.fetchCategories { [weak self]categories, error in
             if let categories {
@@ -171,8 +205,15 @@ private extension BudgetViewController {
     
         self.view.addSubview(userButton)
         userButton.translatesAutoresizingMaskIntoConstraints = false
+//        userButton.isHidden = true
       
+        self.view.addSubview(addUserButton)
+        addUserButton.translatesAutoresizingMaskIntoConstraints = false
+        addUserButton.isHidden = true
         
+        self.view.addSubview(switchUser)
+        switchUser.translatesAutoresizingMaskIntoConstraints = false
+        switchUser.isHidden = true
     }
     
     func setupLayots() {
@@ -182,8 +223,15 @@ private extension BudgetViewController {
             tableView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.65),
             tableView.topAnchor.constraint(equalTo: container.bottomAnchor, constant: 16),
             
+            addUserButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            addUserButton.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: 30),
+            
+            switchUser.leftAnchor.constraint(equalTo: addUserButton.rightAnchor, constant: 8),
+            switchUser.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: 30),
+            
             userButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
             userButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),
+            
             
             addCategoryButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 16),
             addCategoryButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
@@ -236,8 +284,7 @@ extension BudgetViewController  {
         tableView.reloadData()
         refreshControl.endRefreshing()
         checkData()
-        budgetLabel.text = "$\(categorySum?.rounded(toPlaces: 2) ?? 0)"
-        budgetDescriptionLabel.text = "of $\(totalBudget?.rounded(toPlaces: 2) ?? 0) budget"
+        updateCurrencySymbol()
         check()
         
     }
