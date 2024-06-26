@@ -6,10 +6,19 @@ Built to demonstrate the use of Swift UIKit, Firebase, NotificatioCenter, Charts
 <img width="340" alt="Снимок экрана 2024-06-26 в 12 34 28" src="https://github.com/H8K-iOS/Trackizer/assets/147388544/26f600f0-b2c1-413f-b970-a00ec04de05c">
 
 
+
+
 <img width="343" alt="Снимок экрана 2024-06-26 в 12 36 45" src="https://github.com/H8K-iOS/Trackizer/assets/147388544/0b13c022-3d08-40a2-9580-3b7a96160158">
 
 
+
+
 <img width="345" alt="Снимок экрана 2024-06-26 в 12 38 20" src="https://github.com/H8K-iOS/Trackizer/assets/147388544/3ed9f6d7-0b81-4362-8e89-662aa2dfa92c">
+
+
+
+
+<img width="340" alt="Снимок экрана 2024-06-26 в 12 39 38" src="https://github.com/H8K-iOS/Trackizer/assets/147388544/1f78d4d2-e3f8-42ee-ae6f-bb32f3ac4368">
 
 # Built With:
 Swift UIKit - Swift UIKit is a powerful framework for building user interfaces on Apple platforms using Swift.
