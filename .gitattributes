@@ -1,11 +1,7 @@
 # Указать, что все .swift файлы написаны на Swift
-*.swift linguist-language=Swift
-
 # Игнорировать автосгенерированные файлы и файлы настройки проекта
 *.xcworkspace linguist-vendored
 *.xcodeproj linguist-vendored
 *.xcuserdata linguist-generated
 *.xcuserdatad linguist-generated
-
-# Игнорировать Pods (если используется CocoaPods)
 Pods/** linguist-vendored
