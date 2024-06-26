@@ -1,5 +1,3 @@
-# Указать, что все .swift файлы написаны на Swift
-# Игнорировать автосгенерированные файлы и файлы настройки проекта
 *.xcworkspace linguist-vendored
 *.xcodeproj linguist-vendored
 *.xcuserdata linguist-generated
