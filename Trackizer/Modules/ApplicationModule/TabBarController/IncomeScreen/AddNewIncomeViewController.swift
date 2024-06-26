@@ -136,11 +136,11 @@ private extension AddNewIncomeViewController {
         textFieldVStack.translatesAutoresizingMaskIntoConstraints = false
         
         categoryNameLabel.textColor = .white
-        categoryNameLabel.text = "New Category"
+        categoryNameLabel.text = "New Income"
         categoryNameLabel.font = .systemFont(ofSize: 22, weight: .heavy)
         
         categoryPickerLabel.textColor = .white
-        categoryPickerLabel.text = "Your category"
+        categoryPickerLabel.text = "Your income category"
         categoryPickerLabel.font = .systemFont(ofSize: 16, weight: .medium)
         
         
@@ -214,7 +214,7 @@ extension AddNewIncomeViewController {
         categoryPickerView.layer.borderColor = GrayColors.gray70.OWColor.cgColor
 
         categoryPickerCategoryNameLabel.textColor = .gray
-        categoryPickerCategoryNameLabel.text = "Select category"
+        categoryPickerCategoryNameLabel.text = "Select income category"
         categoryPickerCategoryNameLabel.font = .systemFont(ofSize: 14, weight: .medium)
 
         categoryPickerPickButton.setImage(UIImage(systemName: "arrowtriangle.down"), for: .normal)

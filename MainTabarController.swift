@@ -22,7 +22,7 @@ final class MainTabarController: UITabBarController {
 //MARK: - Extensions
 private extension MainTabarController {
     func setupTabBar() {
-        viewControllers = [generateVC(for: BudgetViewController(), title: "Spends",
+        viewControllers = [generateVC(for: BudgetViewController(), title: "Budget",
                                            icon: #imageLiteral(resourceName: "Home.png")),
                            generateVC(for: ExpenseViewController(), title: "Exspense",
                                            icon: #imageLiteral(resourceName: "Budgets.png")),
@@ -34,10 +34,12 @@ private extension MainTabarController {
         
     }
     
-    func generateVC(for vc: UIViewController, title: String, icon: UIImage?) -> UIViewController {
-        vc.tabBarItem.image = icon
-        vc.tabBarItem.title = title
-        return vc
+    func generateVC(for vc: UIViewController, title: String, icon: UIImage?) -> UINavigationController {
+        let nav = UINavigationController(rootViewController: vc)
+        nav.tabBarItem.image = icon
+        nav.tabBarItem.title = title
+        nav.navigationBar.prefersLargeTitles = false
+        return nav
     }
     
     private func drawTabBar() {

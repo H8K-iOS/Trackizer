@@ -2,9 +2,6 @@ import Foundation
 import FirebaseFirestore
 import UIKit
 
-
-
-
 struct BudgetModel {
     let categoryName: String
     let categoryTotalValue: Double

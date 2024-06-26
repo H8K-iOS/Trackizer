@@ -18,7 +18,7 @@ final class BackgroundView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
-        setConst()
+        setLayouts()
     }
     
     required init?(coder: NSCoder) {
@@ -71,7 +71,7 @@ private extension BackgroundView {
         backItemMedium2.contentMode = .scaleAspectFit
         
     }
-    private func setConst() {
+    private func setLayouts() {
        
         NSLayoutConstraint.activate([
             container.centerXAnchor.constraint(equalTo: self.centerXAnchor),

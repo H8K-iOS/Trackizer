@@ -2,8 +2,6 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-
-
 final class BudgetViewModel {
     
     //MARK: - Constants
@@ -16,12 +14,7 @@ final class BudgetViewModel {
             self.onBudgetUpdate?()
         }
     }
-   
-
-    init(){
-        
-        
-    }
+    init(){}
     
     //MARK: - Methods
     func numberOfRows() -> Int{

@@ -30,10 +30,6 @@ final class BudgetViewController: UIViewController {
                                                           type: .description)
     
     private lazy var userButton = createRoundButton(imageName: "person.fill", selector: #selector(userButtonTapped))
-    
-    private lazy var addUserButton = createRoundButton(imageName: "person.badge.plus", selector: #selector(addUserButtonTapped))
-    
-    private lazy var switchUser = createRoundButton(imageName: "switch.2", selector: #selector(switchUserButtonTapped))
     private var categorySum: Double? = 0
     
     var backgroundLayer: CAShapeLayer?
@@ -51,7 +47,7 @@ final class BudgetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        //TODO: -
+        
         setBackground()
         setupRoundView()
         setupUI()
@@ -99,16 +95,22 @@ final class BudgetViewController: UIViewController {
     }
     
     @objc private func userButtonTapped() {
-       
-        present(UserViewController(), animated: true)
-    }
-    
-    @objc private func addUserButtonTapped() {
-        present(AddNewUserViewController(), animated: true)
-    }
-    
-    @objc private func switchUserButtonTapped() {
-        print("qq")
+        let vc = UserViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.isModalInPresentation = true
+        if #available(iOS 15.0, *) {
+            if let sheet = nav.sheetPresentationController {
+                if #available(iOS 16.0, *) {
+                    sheet.preferredCornerRadius = 40
+                    sheet.detents = [.custom(resolver: { context in
+                        0.2 * context.maximumDetentValue
+                    }), .large()]
+                } else {
+                    navigationController?.present(nav, animated: true)
+                }
+            }
+        }
+        navigationController?.present(nav, animated: true)
     }
     
     func checkData() {
@@ -205,15 +207,6 @@ private extension BudgetViewController {
     
         self.view.addSubview(userButton)
         userButton.translatesAutoresizingMaskIntoConstraints = false
-//        userButton.isHidden = true
-      
-        self.view.addSubview(addUserButton)
-        addUserButton.translatesAutoresizingMaskIntoConstraints = false
-        addUserButton.isHidden = true
-        
-        self.view.addSubview(switchUser)
-        switchUser.translatesAutoresizingMaskIntoConstraints = false
-        switchUser.isHidden = true
     }
     
     func setupLayots() {
@@ -222,12 +215,6 @@ private extension BudgetViewController {
             tableView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
             tableView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2.65),
             tableView.topAnchor.constraint(equalTo: container.bottomAnchor, constant: 16),
-            
-            addUserButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            addUserButton.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: 30),
-            
-            switchUser.leftAnchor.constraint(equalTo: addUserButton.rightAnchor, constant: 8),
-            switchUser.centerYAnchor.constraint(equalTo: container.centerYAnchor, constant: 30),
             
             userButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
             userButton.centerYAnchor.constraint(equalTo: container.centerYAnchor),

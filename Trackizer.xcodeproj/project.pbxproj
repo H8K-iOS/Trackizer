@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		565993DC3F9FD792187C6956 /* Pods_Trackizer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D7C56AAFD2778D42FAC7B2 /* Pods_Trackizer.framework */; };
+		8C1BA0312C2C0E740027CFF1 /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1BA0302C2C0E740027CFF1 /* AuthModel.swift */; };
 		8C1F197D2BE82D98002513D8 /* OtherExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F197C2BE82D98002513D8 /* OtherExtensions.swift */; };
 		8C1F197F2BEA32B9002513D8 /* CategoryCell+Extensons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F197E2BEA32B9002513D8 /* CategoryCell+Extensons.swift */; };
 		8C1F19822BEAE279002513D8 /* AddSpendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1F19812BEAE279002513D8 /* AddSpendsViewController.swift */; };
@@ -18,16 +19,12 @@
 		8C4565C52C051A6D003710A7 /* AddSpendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4565C42C051A6D003710A7 /* AddSpendsViewModel.swift */; };
 		8C4F6FBE2BF601C800FE7957 /* ExpenseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F6FBD2BF601C800FE7957 /* ExpenseModel.swift */; };
 		8C659C9C2C088A59002FBB23 /* AddNewCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C659C9B2C088A59002FBB23 /* AddNewCategoryViewModel.swift */; };
-		8C6743382C1AE3FA005DB80E /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6743372C1AE3FA005DB80E /* DateViewController.swift */; };
-		8C67433B2C1AF021005DB80E /* AddNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67433A2C1AF021005DB80E /* AddNewUserViewController.swift */; };
-		8C67433D2C1B0E94005DB80E /* dateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67433C2C1B0E94005DB80E /* dateViewController.swift */; };
 		8C67433F2C1C46D2005DB80E /* CurrencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67433E2C1C46D2005DB80E /* CurrencyManager.swift */; };
 		8C6B759A2C1862880007EAD2 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6B75992C1862880007EAD2 /* UITableViewCell+Extensions.swift */; };
-		8C6B759C2C18CCD50007EAD2 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6B759B2C18CCD50007EAD2 /* View.swift */; };
+		8C6B759C2C18CCD50007EAD2 /* DateValueFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6B759B2C18CCD50007EAD2 /* DateValueFormater.swift */; };
 		8C766A072C11E1B9008E3724 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C766A062C11E1B9008E3724 /* UserViewController.swift */; };
 		8C85EA222BE3DA0F00832111 /* CategorieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C85EA212BE3DA0F00832111 /* CategorieCell.swift */; };
 		8C8E6B332BE0F8370040977D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B322BE0F8370040977D /* AuthService.swift */; };
-		8C8E6B372BE0F9FC0040977D /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B362BE0F9FC0040977D /* AuthModel.swift */; };
 		8C8E6B392BE299EB0040977D /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B382BE299EB0040977D /* ValidationManager.swift */; };
 		8C8E6B3B2BE29DAB0040977D /* SigninViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E6B3A2BE29DAB0040977D /* SigninViewModel.swift */; };
 		8C9297242BE7B67A004FE8E1 /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9297232BE7B67A004FE8E1 /* IncomeViewController.swift */; };
@@ -63,6 +60,7 @@
 /* Begin PBXFileReference section */
 		14065D4B0B30DE62C75376E5 /* Pods-Trackizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trackizer.debug.xcconfig"; path = "Target Support Files/Pods-Trackizer/Pods-Trackizer.debug.xcconfig"; sourceTree = "<group>"; };
 		23D7C56AAFD2778D42FAC7B2 /* Pods_Trackizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trackizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1BA0302C2C0E740027CFF1 /* AuthModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthModel.swift; path = "../../../../../../Library/Mobile Documents/.Trash/AuthModel.swift"; sourceTree = "<group>"; };
 		8C1F197C2BE82D98002513D8 /* OtherExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherExtensions.swift; sourceTree = "<group>"; };
 		8C1F197E2BEA32B9002513D8 /* CategoryCell+Extensons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryCell+Extensons.swift"; sourceTree = "<group>"; };
 		8C1F19812BEAE279002513D8 /* AddSpendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendsViewController.swift; sourceTree = "<group>"; };
@@ -73,21 +71,17 @@
 		8C4565C42C051A6D003710A7 /* AddSpendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendsViewModel.swift; sourceTree = "<group>"; };
 		8C4F6FBD2BF601C800FE7957 /* ExpenseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseModel.swift; sourceTree = "<group>"; };
 		8C659C9B2C088A59002FBB23 /* AddNewCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCategoryViewModel.swift; sourceTree = "<group>"; };
-		8C6743372C1AE3FA005DB80E /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
-		8C67433A2C1AF021005DB80E /* AddNewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewUserViewController.swift; sourceTree = "<group>"; };
-		8C67433C2C1B0E94005DB80E /* dateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateViewController.swift; sourceTree = "<group>"; };
 		8C67433E2C1C46D2005DB80E /* CurrencyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyManager.swift; sourceTree = "<group>"; };
 		8C6B75992C1862880007EAD2 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
-		8C6B759B2C18CCD50007EAD2 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		8C6B759B2C18CCD50007EAD2 /* DateValueFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValueFormater.swift; sourceTree = "<group>"; };
 		8C766A062C11E1B9008E3724 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		8C85EA212BE3DA0F00832111 /* CategorieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorieCell.swift; sourceTree = "<group>"; };
 		8C8E6B322BE0F8370040977D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		8C8E6B362BE0F9FC0040977D /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		8C8E6B382BE299EB0040977D /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		8C8E6B3A2BE29DAB0040977D /* SigninViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewModel.swift; sourceTree = "<group>"; };
 		8C9297232BE7B67A004FE8E1 /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		8CA2E1312BE3BA500093A0BA /* MainTabarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabarController.swift; sourceTree = SOURCE_ROOT; };
-		8CA2E1332BE3BBAE0093A0BA /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpenseViewController.swift; path = Trackizer/ExpenseViewController.swift; sourceTree = SOURCE_ROOT; };
+		8CA2E1332BE3BBAE0093A0BA /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpenseViewController.swift; path = Trackizer/Modules/ApplicationModule/TabBarController/ExpenseScreen/ExpenseViewController.swift; sourceTree = SOURCE_ROOT; };
 		8CB855042C0F010200B44FAD /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 		8CB855062C0F075200B44FAD /* ExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewModel.swift; sourceTree = "<group>"; };
 		8CB8550C2C0F317400B44FAD /* IncomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewModel.swift; sourceTree = "<group>"; };
@@ -103,7 +97,7 @@
 		8CC62D7B2BCD25B90002196D /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		8CC62D802BCD32AD0002196D /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		8CC62D822BCD41B30002196D /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
-		8CD008252C0F3AE900620B2F /* AddNewIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddNewIncomeViewController.swift; path = Trackizer/Models/AddNewIncomeViewController.swift; sourceTree = SOURCE_ROOT; };
+		8CD008252C0F3AE900620B2F /* AddNewIncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddNewIncomeViewController.swift; path = Trackizer/Modules/ApplicationModule/TabBarController/IncomeScreen/AddNewIncomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		8CD008272C0F466700620B2F /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		8CD008292C0F512B00620B2F /* StatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
 		8CD0082B2C0F51C300620B2F /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
@@ -142,51 +136,19 @@
 		8C1F19802BEAE254002513D8 /* AddSpendsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8C1F19832BEAEC33002513D8 /* Views */,
-				8C4565C32C051A58003710A7 /* ViewModels */,
-			);
-			path = AddSpendsScreen;
-			sourceTree = "<group>";
-		};
-		8C1F19832BEAEC33002513D8 /* Views */ = {
-			isa = PBXGroup;
-			children = (
+				8C4565C42C051A6D003710A7 /* AddSpendsViewModel.swift */,
 				8C1F19812BEAE279002513D8 /* AddSpendsViewController.swift */,
 			);
-			path = Views;
+			path = AddSpendsScreen;
 			sourceTree = "<group>";
 		};
 		8C1F19842BEB987B002513D8 /* AddNewCategory */ = {
 			isa = PBXGroup;
 			children = (
-				8C1F19872BEB997B002513D8 /* View */,
-				8C659C9A2C088A3A002FBB23 /* ViewModel */,
-			);
-			path = AddNewCategory;
-			sourceTree = "<group>";
-		};
-		8C1F19872BEB997B002513D8 /* View */ = {
-			isa = PBXGroup;
-			children = (
+				8C659C9B2C088A59002FBB23 /* AddNewCategoryViewModel.swift */,
 				8C1F19852BEB9896002513D8 /* AddNewCategoryViewController.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C4565C32C051A58003710A7 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8C4565C42C051A6D003710A7 /* AddSpendsViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		8C659C9A2C088A3A002FBB23 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8C659C9B2C088A59002FBB23 /* AddNewCategoryViewModel.swift */,
-			);
-			path = ViewModel;
+			path = AddNewCategory;
 			sourceTree = "<group>";
 		};
 		8C6743392C1AEFB8005DB80E /* AddScreens */ = {
@@ -194,7 +156,6 @@
 			children = (
 				8C1F19842BEB987B002513D8 /* AddNewCategory */,
 				8C1F19802BEAE254002513D8 /* AddSpendsScreen */,
-				8C67433A2C1AF021005DB80E /* AddNewUserViewController.swift */,
 			);
 			path = AddScreens;
 			sourceTree = "<group>";
@@ -203,22 +164,14 @@
 			isa = PBXGroup;
 			children = (
 				8C766A062C11E1B9008E3724 /* UserViewController.swift */,
-				8C67433C2C1B0E94005DB80E /* dateViewController.swift */,
 			);
 			path = UserScreen;
-			sourceTree = "<group>";
-		};
-		8C8E6B342BE0F8600040977D /* to-name */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "to-name";
 			sourceTree = "<group>";
 		};
 		8C8E6B352BE0F9F00040977D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8C8E6B362BE0F9FC0040977D /* AuthModel.swift */,
+				8C1BA0302C2C0E740027CFF1 /* AuthModel.swift */,
 				8C1F19882BF356CE002513D8 /* BudgetModel.swift */,
 				8C4F6FBD2BF601C800FE7957 /* ExpenseModel.swift */,
 				8CB855102C0F324F00B44FAD /* IncomeModel.swift */,
@@ -229,29 +182,12 @@
 		8C9297222BE7B648004FE8E1 /* IncomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8CD008242C0F3ADA00620B2F /* AddNewIncome */,
-				8CB855092C0F2F1100B44FAD /* Views */,
-				8CB8550A2C0F313C00B44FAD /* ViewModels */,
-			);
-			path = IncomeScreen;
-			sourceTree = "<group>";
-		};
-		8CB855092C0F2F1100B44FAD /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				8C9297232BE7B67A004FE8E1 /* IncomeViewController.swift */,
+				8CD008252C0F3AE900620B2F /* AddNewIncomeViewController.swift */,
 				8CB8550E2C0F31AA00B44FAD /* IncomeCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8CB8550A2C0F313C00B44FAD /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
 				8CB8550C2C0F317400B44FAD /* IncomeViewModel.swift */,
 			);
-			name = ViewModels;
-			path = "New Group1";
+			path = IncomeScreen;
 			sourceTree = "<group>";
 		};
 		8CC62D3F2BCD219F0002196D = {
@@ -275,7 +211,6 @@
 		8CC62D4A2BCD219F0002196D /* Trackizer */ = {
 			isa = PBXGroup;
 			children = (
-				8C8E6B342BE0F8600040977D /* to-name */,
 				8C8E6B352BE0F9F00040977D /* Models */,
 				8CDACA0E2BDD35C300BADFC9 /* Managers */,
 				8CC62D7D2BCD26570002196D /* Helpers */,
@@ -320,10 +255,10 @@
 		8CC62D622BCD21DE0002196D /* BudgetScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8C6743392C1AEFB8005DB80E /* AddScreens */,
-				8C766A052C11E1AA008E3724 /* UserScreen */,
 				8CC62D632BCD21EB0002196D /* Views */,
 				8CC62D642BCD21F30002196D /* ViewModels */,
+				8C6743392C1AEFB8005DB80E /* AddScreens */,
+				8C766A052C11E1AA008E3724 /* UserScreen */,
 			);
 			path = BudgetScreen;
 			sourceTree = "<group>";
@@ -453,8 +388,9 @@
 		8CC62D732BCD24DB0002196D /* ExpenseScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8CC62D782BCD25950002196D /* Views */,
-				8CC62D792BCD25990002196D /* ViewModels */,
+				8CA2E1332BE3BBAE0093A0BA /* ExpenseViewController.swift */,
+				8CB855042C0F010200B44FAD /* ExpenseCell.swift */,
+				8CB855062C0F075200B44FAD /* ExpenseViewModel.swift */,
 			);
 			path = ExpenseScreen;
 			sourceTree = "<group>";
@@ -462,45 +398,11 @@
 		8CC62D742BCD252E0002196D /* Stats */ = {
 			isa = PBXGroup;
 			children = (
-				8CC62D762BCD25830002196D /* Views */,
-				8CC62D772BCD25880002196D /* ViewModels */,
-			);
-			path = Stats;
-			sourceTree = "<group>";
-		};
-		8CC62D762BCD25830002196D /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				8CD008272C0F466700620B2F /* StatsViewController.swift */,
 				8CD008292C0F512B00620B2F /* StatsCell.swift */,
-				8C6743372C1AE3FA005DB80E /* DateViewController.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8CC62D772BCD25880002196D /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
 				8CD0082B2C0F51C300620B2F /* StatsViewModel.swift */,
 			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		8CC62D782BCD25950002196D /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8CA2E1332BE3BBAE0093A0BA /* ExpenseViewController.swift */,
-				8CB855042C0F010200B44FAD /* ExpenseCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		8CC62D792BCD25990002196D /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				8CB855062C0F075200B44FAD /* ExpenseViewModel.swift */,
-			);
-			path = ViewModels;
+			path = Stats;
 			sourceTree = "<group>";
 		};
 		8CC62D7D2BCD26570002196D /* Helpers */ = {
@@ -512,17 +414,9 @@
 				8C1F197C2BE82D98002513D8 /* OtherExtensions.swift */,
 				8C1F197E2BEA32B9002513D8 /* CategoryCell+Extensons.swift */,
 				8C6B75992C1862880007EAD2 /* UITableViewCell+Extensions.swift */,
-				8C6B759B2C18CCD50007EAD2 /* View.swift */,
+				8C6B759B2C18CCD50007EAD2 /* DateValueFormater.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		8CD008242C0F3ADA00620B2F /* AddNewIncome */ = {
-			isa = PBXGroup;
-			children = (
-				8CD008252C0F3AE900620B2F /* AddNewIncomeViewController.swift */,
-			);
-			path = AddNewIncome;
 			sourceTree = "<group>";
 		};
 		8CDACA0E2BDD35C300BADFC9 /* Managers */ = {
@@ -659,10 +553,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C6743382C1AE3FA005DB80E /* DateViewController.swift in Sources */,
 				8CD008282C0F466700620B2F /* StatsViewController.swift in Sources */,
 				8CD008262C0F3AE900620B2F /* AddNewIncomeViewController.swift in Sources */,
-				8C67433B2C1AF021005DB80E /* AddNewUserViewController.swift in Sources */,
 				8CC62D832BCD41B30002196D /* BackgroundView.swift in Sources */,
 				8CDACA032BD5239A00BADFC9 /* SignupViewController.swift in Sources */,
 				8C1F198E2BF3B243002513D8 /* SigninViewController.swift in Sources */,
@@ -674,7 +566,7 @@
 				8CDACA0D2BDCF3D000BADFC9 /* WebViewerController.swift in Sources */,
 				8CC62D502BCD219F0002196D /* BudgetViewController.swift in Sources */,
 				8C67433F2C1C46D2005DB80E /* CurrencyManager.swift in Sources */,
-				8C6B759C2C18CCD50007EAD2 /* View.swift in Sources */,
+				8C6B759C2C18CCD50007EAD2 /* DateValueFormater.swift in Sources */,
 				8CDACA072BD525AD00BADFC9 /* UIViewController+Extensions.swift in Sources */,
 				8CD0082C2C0F51C300620B2F /* StatsViewModel.swift in Sources */,
 				8C8E6B3B2BE29DAB0040977D /* SigninViewModel.swift in Sources */,
@@ -682,7 +574,7 @@
 				8C8E6B392BE299EB0040977D /* ValidationManager.swift in Sources */,
 				8CC62D7C2BCD25B90002196D /* WelcomeScreen.swift in Sources */,
 				8CC62D4E2BCD219F0002196D /* SceneDelegate.swift in Sources */,
-				8C67433D2C1B0E94005DB80E /* dateViewController.swift in Sources */,
+				8C1BA0312C2C0E740027CFF1 /* AuthModel.swift in Sources */,
 				8CDACA092BDB9E3000BADFC9 /* PasswordResetController.swift in Sources */,
 				8C1F19862BEB9896002513D8 /* AddNewCategoryViewController.swift in Sources */,
 				8C1F197D2BE82D98002513D8 /* OtherExtensions.swift in Sources */,
@@ -705,7 +597,6 @@
 				8CA2E1322BE3BA500093A0BA /* MainTabarController.swift in Sources */,
 				8CB855052C0F010200B44FAD /* ExpenseCell.swift in Sources */,
 				8C8E6B332BE0F8370040977D /* AuthService.swift in Sources */,
-				8C8E6B372BE0F9FC0040977D /* AuthModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,6 @@ final class CurrencyManager {
     
     private var currentCurrency: CurrencySymbol = .hryvnia {
         didSet {
-            // Посылаем уведомление о изменении валюты
             NotificationCenter.default.post(name: .currencyDidChange, object: nil)
         }
     }
@@ -34,7 +33,6 @@ final class CurrencyManager {
     private let selectedCurrencyKey = "selectedCurrencySymbol"
     
     private init() {
-        // Устанавливаем текущую валюту из UserDefaults
         if let storedSymbol = UserDefaults.standard.string(forKey: selectedCurrencyKey) {
             currentCurrency = CurrencySymbol(rawValue: storedSymbol) ?? .hryvnia
         }

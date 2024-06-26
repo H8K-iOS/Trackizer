@@ -5,6 +5,7 @@ final class UserViewController: UIViewController {
     private let logoutButton = UIButton()
     private let accountTitleLabel = UILabel()
     private let usernameLabel = UILabel()
+    private let currencyLabel = UILabel()
     private let currencySegmentedControl = UISegmentedControl(items: CurrencySymbol.allCases.map { $0.rawValue })
     
     private let authService = AuthService.shared
@@ -13,8 +14,10 @@ final class UserViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         self.view.backgroundColor = GrayColors.gray70.OWColor
         setupUI()
+        setupNavigationBar()
         
         currencySegmentedControl.selectedSegmentIndex = CurrencySymbol.allCases.firstIndex(of: currencyManager.currentSymbol) ?? 0
     }
@@ -37,6 +40,10 @@ final class UserViewController: UIViewController {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true)
+    }
+    
+    @objc private func closeButtonTapped() {
+        self.dismiss(animated: true)
     }
     
     @objc private func currencyChanged() {
@@ -76,6 +83,13 @@ private extension UserViewController {
         accountTitleLabel.textAlignment = .left
         accountTitleLabel.tintColor = .systemGray
         
+        self.view.addSubview(currencyLabel)
+        currencyLabel.translatesAutoresizingMaskIntoConstraints = false
+        currencyLabel.font = .systemFont(ofSize: 22, weight: .medium)
+        currencyLabel.text = "Select currency:"
+        currencyLabel.textColor = .white
+        currencyLabel.textAlignment = .left
+        
         self.view.addSubview(usernameLabel)
         usernameLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -87,14 +101,29 @@ private extension UserViewController {
             accountTitleLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16),
             accountTitleLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
             
-            logoutButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 24),
-            logoutButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -16),
+            logoutButton.topAnchor.constraint(equalTo: currencyLabel.bottomAnchor, constant: 16),
+            logoutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
             usernameLabel.topAnchor.constraint(equalTo: accountTitleLabel.bottomAnchor, constant: 16),
             usernameLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
             
-            currencySegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            currencySegmentedControl.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            currencyLabel.topAnchor.constraint(equalTo: accountTitleLabel.bottomAnchor, constant: 26),
+            currencyLabel.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            
+            currencySegmentedControl.topAnchor.constraint(equalTo: accountTitleLabel.bottomAnchor, constant: 26),
+            currencySegmentedControl.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
         ])
+    }
+    
+    func setupNavigationBar() {
+        let closeButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .plain,
+            target: self,
+            action: #selector(closeButtonTapped)
+        )
+        closeButtonItem.tintColor = .systemGray
+        
+        self.navigationItem.rightBarButtonItem = closeButtonItem
     }
 }

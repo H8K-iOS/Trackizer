@@ -10,8 +10,6 @@ final class AddNewCategoryViewModel {
     }
     
     //MARK: - Computed Properties
-   
-    
     func addCategory(categoryName: String, categoryBudget: Double, completion: @escaping(Error?)->Void) {
         authService.addNewCategory(categoryName: categoryName, totalBudget: categoryBudget, completion: completion)
     }

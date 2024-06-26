@@ -14,7 +14,6 @@ final class StatsViewController: UIViewController {
     private let segmentedControll = UISegmentedControl(items: ["Incomes", "Expense"])
     private let tableView = UITableView()
     private let viewModel: StatsViewModel
-    private let timeLineButton = UIButton()
     //MARK: Variables
     private var currentStatState: StatsState = .incomes
    
@@ -60,13 +59,6 @@ final class StatsViewController: UIViewController {
     }
     
     //MARK: Methods
-    @objc private func timeLineButtonTapped() {
-        let dateVC = DateViewController()
-            dateVC.onDateRangeSelected = { [weak self] startDate, endDate in
-                self?.viewModel.setDateRange(startDate: startDate, endDate: endDate)
-            }
-            present(dateVC, animated: true, completion: nil)
-    }
     
     @objc private func segmentedControlChanged(_ sender: UISegmentedControl) {
         currentStatState = sender.selectedSegmentIndex == 0 ? .incomes : .expense
@@ -124,14 +116,7 @@ private extension StatsViewController {
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
         
-        self.view.addSubview(timeLineButton)
-        timeLineButton.translatesAutoresizingMaskIntoConstraints = false
-        timeLineButton.setTitle("Select a time period", for: .normal)
-        timeLineButton.setTitleColor(.systemGray, for: .normal)
-        timeLineButton.setImage(UIImage(systemName: "calendar"), for: .normal)
-        timeLineButton.tintColor = .systemGray
-        timeLineButton.addTarget(self, action: #selector(timeLineButtonTapped), for: .touchUpInside)
-        timeLineButton.isHidden = true
+    
     }
     
     func setLayots() {
@@ -139,12 +124,7 @@ private extension StatsViewController {
             label.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 70),
             label.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 16),
             
-            
-            timeLineButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -25),
-            timeLineButton.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
-            timeLineButton.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
-            
-            segmentedControll.topAnchor.constraint(equalTo: timeLineButton.bottomAnchor, constant: 1),
+            segmentedControll.topAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -25),
             segmentedControll.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
             tableView.topAnchor.constraint(equalTo: segmentedControll.bottomAnchor, constant: 16),
@@ -211,7 +191,7 @@ private extension StatsViewController {
                     entries.append(entry)
                 }
                 
-                dataSetLabel = "Incomes" // Description for incomes dataset
+                dataSetLabel = "Incomes" 
                 
             case .expense:
                 let expenseData = viewModel.expenseSource.sorted { $0.date < $1.date }
@@ -222,13 +202,13 @@ private extension StatsViewController {
                     entries.append(entry)
                 }
                 
-                dataSetLabel = "Expenses" // Description for expenses dataset
+                dataSetLabel = "Expenses"
             }
             
             let set = LineChartDataSet(entries: entries, label: dataSetLabel)
             set.colors = ChartColorTemplates.material()
-            set.drawIconsEnabled = false // Disable drawing icons (squares)
-            set.drawValuesEnabled = false // Disable drawing values next to each entry
+            set.drawIconsEnabled = false
+            set.drawValuesEnabled = false
             
             let data = LineChartData(dataSet: set)
             lineChart.data = data

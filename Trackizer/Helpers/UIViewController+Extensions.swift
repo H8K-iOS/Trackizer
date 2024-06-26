@@ -591,7 +591,6 @@ extension IncomeCell {
 }
 
 extension IncomeViewController {
-    
     func createButton(selector: Selector) -> UIButton {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -610,9 +609,6 @@ extension IncomeViewController {
         
         return btn
         }
-        
-    
-
     }
 
 extension AddNewIncomeViewController {
@@ -656,37 +652,4 @@ extension AddNewIncomeViewController {
     }
     
 
-}
-
-//MARK: - Add New Category ViewController
-extension AddNewUserViewController {
-    func createTextField(placeholder: String) -> UITextField {
-        let tf = UITextField()
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.backgroundColor = .clear
-        tf.layer.borderWidth = 1
-        tf.layer.cornerRadius = 20
-        tf.layer.borderColor = GrayColors.gray70.OWColor.cgColor
-        tf.placeholder = placeholder
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        tf.leftView = paddingView
-        tf.leftViewMode = .always
-            
-        return tf
-    }
-    
-   
-    
-    func createButton(selector: Selector) -> UIButton {
-        let btn = UIButton()
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Add new user", for: .normal)
-        btn.tintColor = .systemGray
-        btn.layer.cornerRadius = 15
-        btn.layer.borderWidth = 1
-        btn.layer.borderColor = UIColor.darkGray.cgColor
-        btn.addTarget(self, action: selector, for: .touchUpInside)
-        return btn
-    }
 }

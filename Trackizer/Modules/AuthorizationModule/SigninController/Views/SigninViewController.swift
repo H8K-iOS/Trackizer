@@ -38,14 +38,9 @@ final class SigninViewController: UIViewController, UITextFieldDelegate {
         
         setupUI()
         setLayouts()
-        
-        // Set delegates for text fields
+
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        
-        // Add tap gesture recognizer to dismiss keyboard
-        
-        
     }
     
     required init?(coder: NSCoder) {
@@ -92,7 +87,6 @@ final class SigninViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - UITextFieldDelegate
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == passwordTextField {
             signinButtonTapped()

@@ -17,6 +17,7 @@ extension UITableViewCell {
 }
 
 extension StatsCell {
+    /*
     func createSquareView(text: String, categoryCount: Int) -> UIView{
         let view = UIView()
         view.backgroundColor = .black.withAlphaComponent(0.1)
@@ -35,7 +36,7 @@ extension StatsCell {
         let categoryCountLabel = UILabel()
         categoryCountLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(categoryCountLabel)
-        categoryCountLabel.text = "✊" + "\(categoryCount)"
+        categoryCountLabel.text = "\(categoryCount)"
         categoryCountLabel.font = .systemFont(ofSize: 28)
         categoryCountLabel.textColor = .white
         
@@ -51,6 +52,7 @@ extension StatsCell {
         
         return view
     }
+    */
     
     func createStackView(axis: NSLayoutConstraint.Axis) -> UIStackView {
         let sv = UIStackView()
