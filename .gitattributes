@@ -1,0 +1,8 @@
+*.swift linguist-language=Swift
+
+*.xcworkspace linguist-vendored
+*.xcodeproj linguist-vendored
+*.xcuserdata linguist-generated
+*.xcuserdatad linguist-generated
+
+Pods/** linguist-vendored
