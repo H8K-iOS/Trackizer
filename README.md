@@ -1,6 +1,6 @@
 # Trackizer
 Hi everyone, this is a simple Budget Tracker App📱
-Built to demonstrate the use of UIKit, Firebase, NotificatioCenter, Charts, Delegate Pattern in MVVM Architecture
+Built to demonstrate the use of Swift UIKit, Firebase, NotificatioCenter, Charts, Delegate Pattern in MVVM Architecture
 
 
 # Built With:
