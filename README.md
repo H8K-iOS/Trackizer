@@ -24,7 +24,7 @@ Built to demonstrate the use of Swift UIKit, Firebase, NotificatioCenter, Charts
 
 <img width="338" alt="Снимок экрана 2024-06-26 в 12 41 29" src="https://github.com/H8K-iOS/Trackizer/assets/147388544/433e4669-a4ac-4959-8038-5d187dc0e53a">
 
-# Autorization
+# Authorization
 
 
 <img width="341" alt="Снимок экрана 2024-06-26 в 12 42 40" src="https://github.com/H8K-iOS/Trackizer/assets/147388544/8e24a044-90e8-4550-9d1b-1e826380fe19">
